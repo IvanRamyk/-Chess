@@ -3,3 +3,8 @@
 //
 
 #include "Figure.h"
+
+Figure::Figure(int color) {
+    this->_color = color;
+    this->_isMoved = false;
+}
