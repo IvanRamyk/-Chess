@@ -7,8 +7,8 @@
 
 #include <string>
 
-#include "ChessBoard.h"
-#include "Move.h"
+#include "../ChessBoard/ChessBoard.h"
+#include "../Move/Move.h"
 
 class ChessGame {
 public:

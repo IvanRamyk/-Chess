@@ -8,13 +8,16 @@
 #include <utility>
 #include <string>
 
-#include "Figure.h"
+#include "../Figure/Figure.h"
+
 
 class Move {
 public:
     Move(std::pair<int, int> begin, std::pair<int, int> end, Figure* fig);
 
     std::string getMove();
+
+    std::string getStockFishMove();
 
     std::pair<int, int> getBegin();
 
@@ -23,8 +26,6 @@ private:
     std::pair<int, int> _begin;
     std::pair<int, int> _end;
     Figure* _fig;
-
-    std::string getStockFishMove();
 };
 
 

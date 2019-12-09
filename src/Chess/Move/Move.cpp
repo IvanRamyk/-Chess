@@ -24,9 +24,12 @@ std::pair<int, int> Move::getEnd() {
 
 // x-y coordinates to chess-coordinates
 std::string chessCoordinates(std::pair<int, int> coordinates) {
-
+    char letter = 'a';
+    letter += coordinates.first;
+    std::string chessStyle = reinterpret_cast<const char *>(letter) + std::to_string(coordinates.second);
+    return chessStyle;
 }
 
 std::string Move::getStockFishMove() {
-
+    return chessCoordinates(this->_begin) + " " + chessCoordinates(this->_end);
 }

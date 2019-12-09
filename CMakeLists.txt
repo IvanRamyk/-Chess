@@ -3,4 +3,4 @@ project(ch)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(ch main.cpp ChessGame.cpp ChessGame.h ChessBoard.cpp ChessBoard.h Figure.cpp Figure.h Move.cpp Move.h)
+add_executable(ch main.cpp src/Chess/ChessGame/ChessGame.cpp src/Chess/ChessGame/ChessGame.h src/Chess/ChessBoard/ChessBoard.cpp src/Chess/ChessBoard/ChessBoard.h src/Chess/Figure/Figure.cpp src/Chess/Figure/Figure.h src/Chess/Move/Move.cpp src/Chess/Move/Move.h)
