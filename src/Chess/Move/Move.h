@@ -7,7 +7,7 @@
 
 #include <utility>
 
-#include "Figure.h"
+#include "../Figure/Figure.h"
 
 class Move {
 public:

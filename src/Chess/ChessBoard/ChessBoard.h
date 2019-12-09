@@ -5,8 +5,8 @@
 #ifndef CH_CHESSBOARD_H
 #define CH_CHESSBOARD_H
 
-#include "Figure.h"
-#include "Move.h"
+#include "../Figure/Figure.h"
+#include "../Move/Move.h"
 
 using matrix = Figure*[8][8];
 
