@@ -14,7 +14,7 @@ class ChessBoard {
 public:
     ChessBoard();
 
-    bool checkMove(Move);
+    bool checkMove(Move move);
 
 private:
     matrix _board;
