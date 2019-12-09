@@ -14,10 +14,10 @@ class ChessBoard {
 public:
     ChessBoard();
 
-    bool CheckMove(Move);
+    bool checkMove(Move);
 
 private:
-    matrix board;
+    matrix _board;
 };
 
 

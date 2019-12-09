@@ -13,13 +13,13 @@ class Move {
 public:
     Move(std::pair<int, int> _begin, std::pair<int, int> _end, Figure* _fig);
 
-    void GetMove();
+    void getMove();
 private:
-    std::pair<int, int> begin;
-    std::pair<int, int> end;
-    Figure* fig;
+    std::pair<int, int> _begin;
+    std::pair<int, int> _end;
+    Figure* _fig;
 
-    void GetStockFishMove();
+    void getStockFishMove();
 };
 
 

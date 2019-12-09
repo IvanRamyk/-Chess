@@ -14,11 +14,11 @@ class ChessGame {
 public:
     ChessGame(ChessBoard);
 
-    void MakeMove(Move);
+    void makeMove(Move);
 
 private:
-    ChessBoard board;
-    std::string moveOrder;
+    ChessBoard _board;
+    std::string _moveOrder;
 };
 
 

@@ -9,8 +9,8 @@
 class Figure {
 public:
 private:
-    int color;
-    bool isMoved;
+    int _color;
+    bool _isMoved;
 };
 
 class Pow : public Figure {
