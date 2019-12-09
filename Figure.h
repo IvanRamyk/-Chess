@@ -34,6 +34,11 @@ public:
     explicit Bishop(Color color) : Figure(color) {}
 };
 
+class Rook : public Figure {
+public:
+    explicit Rook(Color color) : Figure(color) {}
+};
+
 class Queen : public Figure {
 public:
     explicit Queen(Color color) : Figure(color) {}
