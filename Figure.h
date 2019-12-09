@@ -5,32 +5,42 @@
 #ifndef CH_FIGURE_H
 #define CH_FIGURE_H
 
+enum Color {
+    White,
+    Black
+};
+
 
 class Figure {
 public:
-    Figure(int color);
+    explicit Figure(Color color);
 private:
-    int _color;
+    Color _color;
     bool _isMoved;
 };
 
 class Pow : public Figure {
-    explicit Pow(int color) : Figure(color) {}
+public:
+    explicit Pow(Color color) : Figure(color) {}
 };
 
 class Knight : public Figure {
-    explicit Knight(int color) : Figure(color) {}
+public:
+    explicit Knight(Color color) : Figure(color) {}
 };
 
 class Bishop : public Figure {
-    explicit Bishop(int color) : Figure(color) {}
+public:
+    explicit Bishop(Color color) : Figure(color) {}
 };
 
 class Queen : public Figure {
-    explicit Queen(int color) : Figure(color) {}
+public:
+    explicit Queen(Color color) : Figure(color) {}
 };
 
 class King : public Figure {
-    explicit King(int color) : Figure(color) {}
+public:
+    explicit King(Color color) : Figure(color) {}
 };
 #endif //CH_FIGURE_H

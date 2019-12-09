@@ -4,7 +4,7 @@
 
 #include "Figure.h"
 
-Figure::Figure(int color) {
+Figure::Figure(Color color) {
     this->_color = color;
     this->_isMoved = false;
 }
