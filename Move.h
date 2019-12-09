@@ -6,20 +6,25 @@
 #define CH_MOVE_H
 
 #include <utility>
+#include <string>
 
 #include "Figure.h"
 
 class Move {
 public:
-    Move(std::pair<int, int> _begin, std::pair<int, int> _end, Figure* _fig);
+    Move(std::pair<int, int> begin, std::pair<int, int> end, Figure* fig);
 
-    void getMove();
+    std::string getMove();
+
+    std::pair<int, int> getBegin();
+
+    std::pair<int, int> getEnd();
 private:
     std::pair<int, int> _begin;
     std::pair<int, int> _end;
     Figure* _fig;
 
-    void getStockFishMove();
+    std::string getStockFishMove();
 };
 
 

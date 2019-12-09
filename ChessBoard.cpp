@@ -71,3 +71,6 @@ ChessBoard::ChessBoard() {
     newKing = new King(Color::Black);
     this->_board[4][7] = newKing;
 }
+
+bool ChessBoard::checkMove(Move move) {
+}
