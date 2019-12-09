@@ -3,3 +3,17 @@
 //
 
 #include "ChessGame.h"
+
+ChessGame::ChessGame(ChessBoard board): _board(board) {}
+
+bool ChessGame::makeMove(Move move) {
+    if (_board.checkMove(move)) {
+        _moves.push_back(move);
+        _addMoveToOrder(move);
+        return true;
+    }
+    return false;
+}
+
+
+

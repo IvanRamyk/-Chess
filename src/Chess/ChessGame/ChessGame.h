@@ -6,19 +6,26 @@
 #define CH_CHESSGAME_H
 
 #include <string>
+#include <vector>
 
 #include "../ChessBoard/ChessBoard.h"
 #include "../Move/Move.h"
 
 class ChessGame {
 public:
-    ChessGame(ChessBoard);
+    explicit ChessGame() = default;
+    explicit ChessGame(ChessBoard);
 
-    void makeMove(Move);
+    bool makeMove(Move);
 
 private:
     ChessBoard _board;
+    std::vector <Move> _moves;
     std::string _moveOrder;
+
+    void _addMoveToOrder(Move move){// not implemented yet
+        _moveOrder = _moveOrder + move.getStockFishMove();
+    }
 };
 
 
