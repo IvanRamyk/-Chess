@@ -23,9 +23,7 @@ private:
     std::vector <Move> _moves;
     std::string _moveOrder;
 
-    void _addMoveToOrder(Move move){// not implemented yet
-        _moveOrder = _moveOrder + move.getStockFishMove();
-    }
+    void _addMoveToOrder(Move move);
 };
 
 

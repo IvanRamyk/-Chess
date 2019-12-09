@@ -15,5 +15,9 @@ bool ChessGame::makeMove(Move move) {
     return false;
 }
 
+void ChessGame::_addMoveToOrder(Move move) {
+    _moveOrder = _moveOrder + move.getStockFishMove();
+}
+
 
 
