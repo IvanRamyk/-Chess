@@ -26,6 +26,6 @@ std::string chessCoordinates(std::pair<int, int> coordinates) {
     return chessStyle;
 }
 
-std::string Move::getStockfishMove() {
-    return chessCoordinates(this->_begin) + " " + chessCoordinates(this->_end);
+std::string Move::getStockfishMove() const {
+    return chessCoordinates(this->_begin) + chessCoordinates(this->_end);
 }
