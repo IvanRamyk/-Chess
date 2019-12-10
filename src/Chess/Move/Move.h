@@ -15,11 +15,11 @@ class Move {
 public:
     Move(std::pair<int, int> begin, std::pair<int, int> end, Figure* fig);
 
-    std::string getStockfishMove();
+    [[nodiscard]] std::string getStockfishMove() const;
 
-    std::pair<int, int> getBegin();
+    [[nodiscard]] std::pair<int, int> getBegin() const;
 
-    std::pair<int, int> getEnd();
+    [[nodiscard]] std::pair<int, int> getEnd() const;
 private:
     std::pair<int, int> _begin;
     std::pair<int, int> _end;

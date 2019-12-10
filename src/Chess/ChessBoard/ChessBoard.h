@@ -14,7 +14,9 @@ class ChessBoard {
 public:
     ChessBoard();
 
-    bool checkMove(Move move);
+    void makeMove(Move move);
+
+    [[nodiscard]] bool checkMove(Move move) const;
 
     matrix* getBoard();
 

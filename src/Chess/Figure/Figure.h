@@ -14,6 +14,8 @@ enum Color {
 class Figure {
 public:
     explicit Figure(Color color);
+
+    void markMoved();
 private:
     Color _color;
     bool _isMoved;
