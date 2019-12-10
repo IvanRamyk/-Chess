@@ -266,3 +266,8 @@ bool ChessBoard::checkMove(Move move) const {
 
     else return false;
 }
+
+Figure *ChessBoard::getFigure(std::pair<int, int> position) {
+    return _board[position.first][position.second];
+}
+

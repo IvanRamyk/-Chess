@@ -26,7 +26,7 @@ char chessFigureNotation(Figure* fg){
         return 'K';
 }
 
-std::string MoveNotation::getNotation() {
+std::string MoveNotation::getNotation() const{
     if (_castle == 1)
         return "0-0";
     if (_castle == 2)

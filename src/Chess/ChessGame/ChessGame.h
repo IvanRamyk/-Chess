@@ -10,13 +10,14 @@
 
 #include "../ChessBoard/ChessBoard.h"
 #include "../Move/Move.h"
+#include "../MoveNotation/MoveNotation.h"
 
 class ChessGame {
 public:
     explicit ChessGame() = default;
     explicit ChessGame(ChessBoard);
 
-    bool makeMove(Move);
+    bool makeMove(std::pair<int,int>, std::pair<int, int>);
 
     [[nodiscard]] std::string getMoves() const;
 
@@ -24,7 +25,7 @@ public:
 
 private:
     ChessBoard _board;
-    std::vector<Move> _moves;
+    std::vector<MoveNotation> _moves;
 };
 
 

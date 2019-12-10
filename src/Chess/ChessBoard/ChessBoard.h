@@ -20,6 +20,24 @@ public:
 
     matrix* getBoard();
 
+    bool isCheck(Move move){
+        return false;
+    }
+
+    bool isCheckmate(Move move){
+        return false;
+    }
+
+    bool isCapture(Move move){
+        return _board[move.getEnd().first][move.getEnd().second] != nullptr;
+    }
+
+    int isCastle(Move move){
+        return 0;
+    }
+
+    Figure* getFigure(std::pair<int, int> position);
+
 private:
     matrix _board;
 
