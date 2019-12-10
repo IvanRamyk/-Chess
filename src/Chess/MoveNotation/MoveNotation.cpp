@@ -7,20 +7,23 @@
 MoveNotation::MoveNotation(Move move, bool check, bool checkmate, bool capture, int castle) :_move(move), _check(check),
                                                             _checkmate(checkmate), _capture(capture), _castle(castle) {}
 
-char chessVertical(int n){
-    return char('a' + n);
+std::string chessVertical(int n){
+    std::string answer;
+    answer += char('a' + n);
+    return answer;
 }
 
 char chessFigureNotation(Figure* fg){
-    if (typeid(*fg).name() == typeid(Knight).name())
+    if (fg->getType() == FigureType::Knight)
         return 'N';
-    if (typeid(*fg).name() == typeid(Bishop).name())
+    if (fg->getType() == FigureType::Bishop)
         return 'B';
-    if (typeid(*fg).name() == typeid(Rook).name())
+    if (fg->getType() == FigureType::Rook)
         return 'R';
-    if (typeid(*fg).name() == typeid(Queen).name())
+    if (fg->getType() == FigureType::Queen)
         return 'Q';
-    return 'i';
+    if (fg->getType() == FigureType::King)
+        return 'K';
 }
 
 std::string MoveNotation::getNotation() {
@@ -29,9 +32,9 @@ std::string MoveNotation::getNotation() {
     if (_castle == 2)
         return "0-0-0";
     std::string begining = "";
-    if (typeid(*_move.getFigure()).name() == typeid(Pawn).name()){
+    if (_move.getFigure()->getType() == FigureType::Pawn){
         if (_capture)
-            begining = chessVertical(_move.getBegin().first) + '-' + chessVertical(_move.getEnd().first);
+            begining = chessVertical(_move.getBegin().first) + "-" + chessVertical(_move.getEnd().first);
         else
             begining = chessCoordinates(_move.getEnd());
     }
