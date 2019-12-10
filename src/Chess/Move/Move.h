@@ -30,5 +30,6 @@ private:
     Figure* _fig{};
 };
 
+std::string chessCoordinates(std::pair<int, int>);
 
 #endif //CH_MOVE_H
