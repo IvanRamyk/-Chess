@@ -4,8 +4,9 @@
 
 #include "Figure.h"
 
-Figure::Figure(Color color) {
+Figure::Figure(Color color, FigureType type) {
     this->_color = color;
+    this->_type = type;
     this->_isMoved = false;
 }
 
@@ -19,4 +20,8 @@ bool Figure::isColor(Figure* figure) const {
 
 bool Figure::isMoved() const {
     return this->_isMoved;
+}
+
+FigureType Figure::getType() const {
+    return this->_type;
 }

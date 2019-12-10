@@ -22,42 +22,41 @@ ChessBoard::ChessBoard() {
     for (int j = 0; j < 2; ++j) {
         for (int i = 0; i < 8; ++i) {
             Color curr = x == 1 ? Color::White : Color::Black;
-            auto* newPow = new Pawn(curr);
-            this->_board[x][1] = newPow;
+            this->_board[x][1] = new Figure(curr, FigureType::Pawn);
         }
         x = 7;
     }
 
     //rooks adding
-    this->_board[0][0] = new Rook(Color::White);
-    this->_board[7][0] = new Rook(Color::White);
+    this->_board[0][0] = new Figure(Color::White, FigureType::Rook);
+    this->_board[7][0] = new Figure(Color::White, FigureType::Rook);
 
-    this->_board[0][7] = new Rook(Color::Black);
-    this->_board[7][7] = new Rook(Color::Black);
+    this->_board[0][7] = new Figure(Color::Black, FigureType::Rook);
+    this->_board[7][7] = new Figure(Color::Black, FigureType::Rook);
 
     //knights adding
-    this->_board[1][0] = new Knight(Color::White);
-    this->_board[6][0] = new Knight(Color::White);
+    this->_board[1][0] = new Figure(Color::White, FigureType::Knight);
+    this->_board[6][0] = new Figure(Color::White, FigureType::Knight);
 
-    this->_board[1][7] = new Knight(Color::Black);
-    this->_board[6][7] = new Knight(Color::Black);
+    this->_board[1][7] = new Figure(Color::Black, FigureType::Knight);
+    this->_board[6][7] = new Figure(Color::Black, FigureType::Knight);
 
     //bishops adding
-    this->_board[2][0] = new Bishop(Color::White);
-    this->_board[5][0] = new Bishop(Color::White);
+    this->_board[2][0] = new Figure(Color::White, FigureType::Bishop);
+    this->_board[5][0] = new Figure(Color::White, FigureType::Bishop);
 
-    this->_board[2][7] = new Bishop(Color::Black);
-    this->_board[5][7] = new Bishop(Color::Black);
+    this->_board[2][7] = new Figure(Color::Black, FigureType::Bishop);
+    this->_board[5][7] = new Figure(Color::Black, FigureType::Bishop);
 
     //queens adding
-    this->_board[3][0] = new Queen(Color::White);
+    this->_board[3][0] = new Figure(Color::White, FigureType::Queen);
 
-    this->_board[3][7] = new Queen(Color::Black);
+    this->_board[3][7] = new Figure(Color::Black, FigureType::Queen);
 
     //kings adding
-    this->_board[4][0] = new King(Color::White);
+    this->_board[4][0] = new Figure(Color::White, FigureType::King);
 
-    this->_board[4][7] = new King(Color::Black);
+    this->_board[4][7] = new Figure(Color::Black, FigureType::King);
 }
 
 void ChessBoard::makeMove(class Move move) {
@@ -172,9 +171,9 @@ bool ChessBoard::checkMove(Move move) const {
     int end_y = move.getEnd().first;
 
     //pawn possible moves
-    if (typeid(*move.getFigure()) == typeid(Pawn)) {
+    if (move.getFigure()->getType() == FigureType::Pawn) {
         int step = 1;
-        if (move.getFigure()->isColor(new Figure(Color::Black))) {
+        if (move.getFigure()->isColor(new Figure(Color::Black, FigureType::Pawn))) {
             step *= -1;
         }
 
@@ -193,7 +192,7 @@ bool ChessBoard::checkMove(Move move) const {
                 return true;
             }
 
-            else if (typeid(*this->_prev.getFigure()) == typeid(Pawn)) {
+            else if (this->_prev.getFigure()->getType() == FigureType::Pawn) {
                 if (this->_prev.getBegin().first == end_x && this->_prev.getBegin().second == end_y + step &&
                     this->_prev.getEnd().first == end_x && this->_prev.getEnd().second == end_y - step) {
 
@@ -208,7 +207,7 @@ bool ChessBoard::checkMove(Move move) const {
     }
 
     //knight possible moves
-    else if (typeid(*move.getFigure()) == typeid(Knight)) {
+    else if (move.getFigure()->getType() == FigureType::Knight) {
         return abs(begin_x - end_x) < 3 &&
                abs(begin_y - end_y) < 3 &&
                abs(begin_x - end_x) + abs(begin_y - end_y) == 3 &&
@@ -218,7 +217,7 @@ bool ChessBoard::checkMove(Move move) const {
     }
 
     //bishop possible moves
-    else if (typeid(*move.getFigure()).name() == typeid(Bishop).name()) {
+    else if (move.getFigure()->getType() == FigureType::Bishop) {
         if (abs(begin_x - end_x) != abs(begin_y - end_y)) {
             return false;
         }
@@ -227,7 +226,7 @@ bool ChessBoard::checkMove(Move move) const {
     }
 
     //rook possible moves
-    else if (typeid(*move.getFigure()) == typeid(Rook)) {
+    else if (move.getFigure()->getType() == FigureType::Rook) {
         if (begin_x != end_x && begin_y != end_y) {
             return false;
         }
@@ -236,7 +235,7 @@ bool ChessBoard::checkMove(Move move) const {
     }
 
     //queen possible moves
-    else if (typeid(*move.getFigure()) == typeid(Queen)) {
+    else if (move.getFigure()->getType() == FigureType::Queen) {
         if ((begin_x != end_x && begin_y != end_y) &&
                 (abs(begin_x - end_x) != abs(begin_y - end_y))) {
             return false;
@@ -246,7 +245,7 @@ bool ChessBoard::checkMove(Move move) const {
     }
 
     //king possible moves
-    else if (typeid(*move.getFigure()) == typeid(King)) {
+    else if (move.getFigure()->getType() == FigureType::King) {
         if (abs(begin_x - end_x) + abs(begin_y - end_y) == 1) {
             return !(this->_board[end_x][end_y] && this->_board[end_x][end_y]->isColor(move.getFigure()));
         }
