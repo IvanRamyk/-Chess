@@ -14,11 +14,15 @@ bool ChessGame::makeMove(Move move) {
     return false;
 }
 
-std::string ChessGame::getMoves() {
+std::string ChessGame::getMoves() const {
 
 }
 
-std::string ChessGame::getStockfishMoves() {
-
+std::string ChessGame::getStockfishMoves() const {
+    std::string res;
+    for (const auto& move : this->_moves) {
+        res += move.getStockfishMove();
+    }
+    return res;
 }
 

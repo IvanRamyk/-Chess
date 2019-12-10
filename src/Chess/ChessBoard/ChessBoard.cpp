@@ -56,7 +56,7 @@ ChessBoard::ChessBoard() {
     this->_board[4][7] = new King(Color::Black);
 }
 
-bool ChessBoard::checkMove(Move move) {
+bool ChessBoard::checkMove(Move move) const {
 }
 
 matrix* ChessBoard::getBoard() {
