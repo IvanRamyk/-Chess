@@ -15,6 +15,8 @@ class Figure {
 public:
     explicit Figure(Color color);
 
+    [[nodiscard]] bool isColor(Figure* figure) const;
+
     void markMoved();
 private:
     Color _color;

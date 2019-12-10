@@ -18,6 +18,10 @@ std::pair<int, int> Move::getEnd() const {
     return this->_end;
 }
 
+Figure* Move::getFigure() const {
+    return this->_fig;
+}
+
 // x-y coordinates to chess-coordinates
 std::string chessCoordinates(std::pair<int, int> coordinates) {
     char letter = 'a';
