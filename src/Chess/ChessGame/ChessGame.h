@@ -18,9 +18,9 @@ public:
 
     bool makeMove(Move);
 
-    std::string getMoves();
+    [[nodiscard]] std::string getMoves() const;
 
-    std::string getStockfishMoves();
+    [[nodiscard]] std::string getStockfishMoves() const;
 
 private:
     ChessBoard _board;

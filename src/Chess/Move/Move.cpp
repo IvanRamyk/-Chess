@@ -10,11 +10,11 @@ Move::Move(std::pair<int, int> begin, std::pair<int, int> end, Figure* fig) {
     this->_fig = fig;
 }
 
-std::pair<int, int> Move::getBegin() {
+std::pair<int, int> Move::getBegin() const {
     return this->_begin;
 }
 
-std::pair<int, int> Move::getEnd() {
+std::pair<int, int> Move::getEnd() const {
     return this->_end;
 }
 
@@ -27,5 +27,5 @@ std::string chessCoordinates(std::pair<int, int> coordinates) {
 }
 
 std::string Move::getStockfishMove() {
-    return chessCoordinates(this->_begin) + chessCoordinates(this->_end);
+    return chessCoordinates(this->_begin) + " " + chessCoordinates(this->_end);
 }
