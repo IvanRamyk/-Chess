@@ -24,7 +24,7 @@ public:
 
 private:
     ChessBoard _board;
-    std::vector <Move> _moves;
+    std::vector<Move> _moves;
 };
 
 
