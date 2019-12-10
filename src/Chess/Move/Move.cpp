@@ -22,10 +22,10 @@ std::pair<int, int> Move::getEnd() const {
 std::string chessCoordinates(std::pair<int, int> coordinates) {
     char letter = 'a';
     letter += coordinates.first;
-    std::string chessStyle = reinterpret_cast<const char *>(letter) + std::to_string(coordinates.second);
+    std::string chessStyle = char(letter) + std::to_string(coordinates.second + 1);
     return chessStyle;
 }
 
-std::string Move::getStockfishMove() const {
+std::string Move::getStockfishMove() {
     return chessCoordinates(this->_begin) + " " + chessCoordinates(this->_end);
 }
