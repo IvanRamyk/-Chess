@@ -13,12 +13,12 @@ ChessBoard::ChessBoard() {
     }
 
 
-    //pows adding
+    //pawns adding
     int x = 1;
     for (int j = 0; j < 2; ++j) {
         for (int i = 0; i < 8; ++i) {
             Color curr = x == 1 ? Color::White : Color::Black;
-            auto* newPow = new Pow(curr);
+            auto* newPow = new Pawn(curr);
             this->_board[x][1] = newPow;
         }
         x = 7;
@@ -56,9 +56,20 @@ ChessBoard::ChessBoard() {
     this->_board[4][7] = new King(Color::Black);
 }
 
-bool ChessBoard::checkMove(Move move) const {
+void ChessBoard::makeMove(class Move move) {
+    _board[move.getEnd().first][move.getEnd().second] =
+            _board[move.getBegin().first][move.getBegin().second];
+    _board[move.getBegin().first][move.getBegin().second] = nullptr;
+
+    _board[move.getEnd().first][move.getEnd().second]->markMoved();
+
 }
 
 matrix* ChessBoard::getBoard() {
     return reinterpret_cast<matrix *>(this->_board);
+}
+
+
+bool ChessBoard::checkMove(Move move) const {
+
 }

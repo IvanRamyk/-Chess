@@ -8,3 +8,7 @@ Figure::Figure(Color color) {
     this->_color = color;
     this->_isMoved = false;
 }
+
+void Figure::markMoved() {
+    this->_isMoved = true;
+}
