@@ -71,7 +71,8 @@ matrix* ChessBoard::getBoard() {
     return reinterpret_cast<matrix *>(this->_board);
 }
 
-std::vector<std::pair<int, int>> getBetween(std::pair<int, int> begin, std::pair<int, int> end) {
+//cells between begin and end
+std::vector<std::pair<int, int>> ChessBoard::getBetween(std::pair<int, int> begin, std::pair<int, int> end) {
     std::vector<std::pair<int, int>> res;
     if (begin.first == end.first) {
         if (begin.second > end.second) {
@@ -134,6 +135,23 @@ std::vector<std::pair<int, int>> getBetween(std::pair<int, int> begin, std::pair
     return res;
 }
 
+bool ChessBoard::checkBetween(Move move) const {
+    int end_x = move.getEnd().first;
+    int end_y = move.getEnd().second;
+    if (this->_board[end_x][end_y] && this->_board[end_x][end_y]->isColor(move.getFigure())) {
+        return false;
+    }
+
+    auto between = getBetween(move.getBegin(), move.getEnd());
+    for (const auto& [x, y] : between) {
+        if (this->_board[x][y] && this->_board[x][y]->isColor(move.getFigure())) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
 
 bool ChessBoard::checkMove(Move move) const {
 
@@ -159,25 +177,32 @@ bool ChessBoard::checkMove(Move move) const {
                !this->_board[end_x][end_y]->isColor(move.getFigure()));
     }
 
-    else if (typeid(*move.getFigure()) == typeid(Bishop)) {
+    else if (typeid(*move.getFigure()).name() == typeid(Bishop).name()) {
         if (abs(begin_x - end_x) != abs(begin_y - end_y)) {
             return false;
         }
 
-
-
+        return checkBetween(move);
     }
 
     else if (typeid(*move.getFigure()) == typeid(Rook)) {
+        if (begin_x != end_x && begin_y != end_y) {
+            return false;
+        }
 
+        return checkBetween(move);
     }
 
     else if (typeid(*move.getFigure()) == typeid(Queen)) {
+        if ((begin_x != end_x && begin_y != end_y) &&
+                (abs(begin_x - end_x) != abs(begin_y - end_y))) {
+            return false;
+        }
 
+        return checkBetween(move);
     }
 
     else if (typeid(*move.getFigure()) == typeid(King)) {
-
     }
 
     else return false;
