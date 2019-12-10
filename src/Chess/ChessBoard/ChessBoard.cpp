@@ -25,51 +25,35 @@ ChessBoard::ChessBoard() {
     }
 
     //rooks adding
-    auto* newRook = new Rook(Color::White);
-    this->_board[0][0] = newRook;
-    newRook = new Rook(Color::White);
-    this->_board[7][0] = newRook;
+    this->_board[0][0] = new Rook(Color::White);
+    this->_board[7][0] = new Rook(Color::White);
 
-    newRook = new Rook(Color::Black);
-    this->_board[0][7] = newRook;
-    newRook = new Rook(Color::Black);
-    this->_board[7][7] = newRook;
+    this->_board[0][7] = new Rook(Color::Black);
+    this->_board[7][7] = new Rook(Color::Black);
 
     //knights adding
-    auto* newKnight = new Knight(Color::White);
-    this->_board[1][0] = newKnight;
-    newKnight = new Knight(Color::White);
-    this->_board[6][0] = newKnight;
+    this->_board[1][0] = new Knight(Color::White);
+    this->_board[6][0] = new Knight(Color::White);
 
-    newKnight = new Knight(Color::Black);
-    this->_board[1][7] = newKnight;
-    newKnight = new Knight(Color::Black);
-    this->_board[6][7] = newKnight;
+    this->_board[1][7] = new Knight(Color::Black);
+    this->_board[6][7] = new Knight(Color::Black);
 
     //bishops adding
-    auto* newBishop = new Bishop(Color::White);
-    this->_board[2][0] = newBishop;
-    newBishop = new Bishop(Color::White);
-    this->_board[5][0] = newBishop;
+    this->_board[2][0] = new Bishop(Color::White);
+    this->_board[5][0] = new Bishop(Color::White);
 
-    newBishop = new Bishop(Color::Black);
-    this->_board[2][7] = newBishop;
-    newBishop = new Bishop(Color::Black);
-    this->_board[5][7] = newBishop;
+    this->_board[2][7] = new Bishop(Color::Black);
+    this->_board[5][7] = new Bishop(Color::Black);
 
     //queens adding
-    auto* newQueen = new Queen(Color::White);
-    this->_board[3][0] = newQueen;
+    this->_board[3][0] = new Queen(Color::White);
 
-    newQueen = new Queen(Color::Black);
-    this->_board[3][7] = newQueen;
+    this->_board[3][7] = new Queen(Color::Black);
 
     //kings adding
-    auto* newKing = new King(Color::White);
-    this->_board[4][0] = newQueen;
+    this->_board[4][0] = new King(Color::White);
 
-    newKing = new King(Color::Black);
-    this->_board[4][7] = newKing;
+    this->_board[4][7] = new King(Color::Black);
 }
 
 bool ChessBoard::checkMove(Move move) {
