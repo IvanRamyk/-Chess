@@ -29,3 +29,7 @@ std::string chessCoordinates(std::pair<int, int> coordinates) {
 std::string Move::getStockfishMove() const {
     return chessCoordinates(this->_begin) + chessCoordinates(this->_end);
 }
+
+Figure *Move::getFigure() const {
+    return this->_fig;
+}

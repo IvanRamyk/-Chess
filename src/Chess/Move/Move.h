@@ -20,11 +20,14 @@ public:
     [[nodiscard]] std::pair<int, int> getBegin() const;
 
     [[nodiscard]] std::pair<int, int> getEnd() const;
+
+    [[nodiscard]] Figure* getFigure() const;
 private:
     std::pair<int, int> _begin;
     std::pair<int, int> _end;
     Figure* _fig;
 };
 
+std::string chessCoordinates(std::pair<int, int>);
 
 #endif //CH_MOVE_H
