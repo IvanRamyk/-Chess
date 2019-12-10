@@ -17,6 +17,8 @@ public:
 
     [[nodiscard]] bool isColor(Figure* figure) const;
 
+    [[nodiscard]] bool isMoved() const;
+
     void markMoved();
 private:
     Color _color;

@@ -164,10 +164,12 @@ bool ChessBoard::checkMove(Move move) const {
     int end_x = move.getEnd().first;
     int end_y = move.getEnd().first;
 
+    //pawn possible moves
     if (typeid(*move.getFigure()) == typeid(Pawn)) {
 
     }
 
+    //knight possible moves
     else if (typeid(*move.getFigure()) == typeid(Knight)) {
         return abs(begin_x - end_x) < 3 &&
                abs(begin_y - end_y) < 3 &&
@@ -177,6 +179,7 @@ bool ChessBoard::checkMove(Move move) const {
                !this->_board[end_x][end_y]->isColor(move.getFigure()));
     }
 
+    //bishop possible moves
     else if (typeid(*move.getFigure()).name() == typeid(Bishop).name()) {
         if (abs(begin_x - end_x) != abs(begin_y - end_y)) {
             return false;
@@ -185,6 +188,7 @@ bool ChessBoard::checkMove(Move move) const {
         return checkBetween(move);
     }
 
+    //rook possible moves
     else if (typeid(*move.getFigure()) == typeid(Rook)) {
         if (begin_x != end_x && begin_y != end_y) {
             return false;
@@ -193,6 +197,7 @@ bool ChessBoard::checkMove(Move move) const {
         return checkBetween(move);
     }
 
+    //queen possible moves
     else if (typeid(*move.getFigure()) == typeid(Queen)) {
         if ((begin_x != end_x && begin_y != end_y) &&
                 (abs(begin_x - end_x) != abs(begin_y - end_y))) {
@@ -202,7 +207,24 @@ bool ChessBoard::checkMove(Move move) const {
         return checkBetween(move);
     }
 
+    //king possible moves
     else if (typeid(*move.getFigure()) == typeid(King)) {
+        if (abs(begin_x - end_x) + abs(begin_y - end_y) == 1) {
+            return !(this->_board[end_x][end_y] && this->_board[end_x][end_y]->isColor(move.getFigure()));
+        }
+
+        if (!move.getFigure()->isMoved()) {
+            if (begin_x == end_x - 2 && begin_y == end_y) {
+                return !this->_board[begin_x + 3][begin_y]->isMoved() &&
+                    checkBetween({{begin_x, begin_y}, {begin_x + 3, begin_y}, move.getFigure()});
+            }
+            else if (begin_x == end_x + 2 && begin_y == end_y) {
+                return !this->_board[begin_x - 4][begin_y]->isMoved() &&
+                        checkBetween({{begin_x, begin_y}, {begin_x - 4, begin_y}, move.getFigure()});
+            }
+        }
+
+        return false;
     }
 
     else return false;

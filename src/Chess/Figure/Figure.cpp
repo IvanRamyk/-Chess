@@ -16,3 +16,7 @@ void Figure::markMoved() {
 bool Figure::isColor(Figure* figure) const {
     return this->_color == figure->_color;
 }
+
+bool Figure::isMoved() const {
+    return this->_isMoved;
+}
