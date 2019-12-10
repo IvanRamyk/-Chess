@@ -74,3 +74,7 @@ ChessBoard::ChessBoard() {
 
 bool ChessBoard::checkMove(Move move) {
 }
+
+matrix* ChessBoard::getBoard() {
+    return reinterpret_cast<matrix *>(this->_board);
+}

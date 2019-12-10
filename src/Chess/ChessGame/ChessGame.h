@@ -18,12 +18,13 @@ public:
 
     bool makeMove(Move);
 
+    std::string getMoves();
+
+    std::string getStockfishMoves();
+
 private:
     ChessBoard _board;
     std::vector <Move> _moves;
-    std::string _moveOrder;
-
-    void _addMoveToOrder(Move move);
 };
 
 

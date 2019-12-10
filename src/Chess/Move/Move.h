@@ -15,9 +15,7 @@ class Move {
 public:
     Move(std::pair<int, int> begin, std::pair<int, int> end, Figure* fig);
 
-    std::string getMove();
-
-    std::string getStockFishMove();
+    std::string getStockfishMove();
 
     std::pair<int, int> getBegin();
 

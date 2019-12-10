@@ -16,6 +16,8 @@ public:
 
     bool checkMove(Move move);
 
+    matrix* getBoard();
+
 private:
     matrix _board;
 };
