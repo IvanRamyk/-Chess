@@ -8,10 +8,10 @@
 
 
 TEST(TestMoveNotation, TestMoveKnight) {
-    Figure* f = new Knight(Color::Black);
-    std::cout << typeid(*f).name() << "  " << typeid(Knight).name() << "\n";
+    auto f = new Knight(Color::Black);
     EXPECT_TRUE(typeid(*f).name() == typeid(Knight).name());
-    Move move({0, 0}, {1, 2}, new Knight(Color::White));
+    auto k = new Knight(Color::White);
+    Move move({0, 0}, {1, 2}, k);
     MoveNotation move_note(move);
     std::cout << move_note.getNotation();
     EXPECT_TRUE(move_note.getNotation() == "Nb3");

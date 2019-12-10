@@ -12,13 +12,13 @@ char chessVertical(int n){
 }
 
 char chessFigureNotation(Figure* fg){
-    if (typeid(*fg) == typeid(Knight))
+    if (typeid(*fg).name() == typeid(Knight).name())
         return 'N';
-    if (typeid(*fg) == typeid(Bishop))
+    if (typeid(*fg).name() == typeid(Bishop).name())
         return 'B';
-    if (typeid(*fg) == typeid(Rook))
+    if (typeid(*fg).name() == typeid(Rook).name())
         return 'R';
-    if (typeid(*fg) == typeid(Queen))
+    if (typeid(*fg).name() == typeid(Queen).name())
         return 'Q';
     return 'i';
 }
@@ -29,7 +29,7 @@ std::string MoveNotation::getNotation() {
     if (_castle == 2)
         return "0-0-0";
     std::string begining = "";
-    if (typeid(*_move.getFigure()) == typeid(Pawn)){
+    if (typeid(*_move.getFigure()).name() == typeid(Pawn).name()){
         if (_capture)
             begining = chessVertical(_move.getBegin().first) + '-' + chessVertical(_move.getEnd().first);
         else
