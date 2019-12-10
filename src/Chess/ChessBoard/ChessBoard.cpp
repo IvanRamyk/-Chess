@@ -7,6 +7,8 @@
 #include "ChessBoard.h"
 
 ChessBoard::ChessBoard() {
+    this->_prev = Move();
+
     //empty cells
     for(auto& i : this->_board) {
         for (auto& j : i) {
@@ -59,6 +61,11 @@ ChessBoard::ChessBoard() {
 }
 
 void ChessBoard::makeMove(class Move move) {
+    //TODO castle moves
+    //TODO pawn takes
+    //TODO transform pawn
+
+    _prev = move;
     _board[move.getEnd().first][move.getEnd().second] =
             _board[move.getBegin().first][move.getBegin().second];
     _board[move.getBegin().first][move.getBegin().second] = nullptr;
@@ -166,7 +173,38 @@ bool ChessBoard::checkMove(Move move) const {
 
     //pawn possible moves
     if (typeid(*move.getFigure()) == typeid(Pawn)) {
+        int step = 1;
+        if (move.getFigure()->isColor(new Figure(Color::Black))) {
+            step *= -1;
+        }
 
+        if (begin_x == end_x && begin_y + step == end_y) {
+            return !this->_board[end_x][end_y];
+        }
+
+        if (begin_x == end_x && begin_y + 2 * step == end_y) {
+            return !move.getFigure()->isMoved() &&
+                   !this->_board[begin_x][begin_y + step] &&
+                   !this->_board[begin_x][begin_y + 2 * step];
+            }
+
+        if (abs(begin_x - end_x) == 1 && begin_y + step == end_y) {
+            if (this->_board[end_x][end_y] && !this->_board[end_x][end_y]->isColor(move.getFigure())) {
+                return true;
+            }
+
+            else if (typeid(*this->_prev.getFigure()) == typeid(Pawn)) {
+                if (this->_prev.getBegin().first == end_x && this->_prev.getBegin().second == end_y + step &&
+                    this->_prev.getEnd().first == end_x && this->_prev.getEnd().second == end_y - step) {
+
+                    return !this->_board[end_x][end_y];
+                }
+            }
+
+            return false;
+        }
+
+        return false;
     }
 
     //knight possible moves
@@ -216,11 +254,11 @@ bool ChessBoard::checkMove(Move move) const {
         if (!move.getFigure()->isMoved()) {
             if (begin_x == end_x - 2 && begin_y == end_y) {
                 return !this->_board[begin_x + 3][begin_y]->isMoved() &&
-                    checkBetween({{begin_x, begin_y}, {begin_x + 3, begin_y}, move.getFigure()});
+                    checkBetween(Move({begin_x, begin_y}, {begin_x + 3, begin_y}, move.getFigure()));
             }
             else if (begin_x == end_x + 2 && begin_y == end_y) {
                 return !this->_board[begin_x - 4][begin_y]->isMoved() &&
-                        checkBetween({{begin_x, begin_y}, {begin_x - 4, begin_y}, move.getFigure()});
+                        checkBetween(Move({begin_x, begin_y}, {begin_x - 4, begin_y}, move.getFigure()));
             }
         }
 

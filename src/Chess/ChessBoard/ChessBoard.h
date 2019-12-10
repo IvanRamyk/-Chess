@@ -23,6 +23,8 @@ public:
 private:
     matrix _board;
 
+    Move _prev;
+
     [[nodiscard]] bool checkBetween(Move move) const;
 
     static std::vector<std::pair<int, int>> getBetween(std::pair<int, int> begin, std::pair<int, int> end);

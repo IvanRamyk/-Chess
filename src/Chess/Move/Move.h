@@ -13,7 +13,9 @@
 
 class Move {
 public:
-    Move(std::pair<int, int> begin, std::pair<int, int> end, Figure* fig);
+    explicit Move() = default;
+
+    explicit Move(std::pair<int, int> begin, std::pair<int, int> end, Figure* fig);
 
     [[nodiscard]] std::string getStockfishMove() const;
 
@@ -25,7 +27,7 @@ public:
 private:
     std::pair<int, int> _begin;
     std::pair<int, int> _end;
-    Figure* _fig;
+    Figure* _fig{};
 };
 
 
