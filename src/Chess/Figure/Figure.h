@@ -19,9 +19,9 @@ private:
     bool _isMoved;
 };
 
-class Pow : public Figure {
+class Pawn : public Figure {
 public:
-    explicit Pow(Color color) : Figure(color) {}
+    explicit Pawn(Color color) : Figure(color) {}
 };
 
 class Knight : public Figure {

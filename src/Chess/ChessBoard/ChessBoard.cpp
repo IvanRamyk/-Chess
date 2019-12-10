@@ -18,7 +18,7 @@ ChessBoard::ChessBoard() {
     for (int j = 0; j < 2; ++j) {
         for (int i = 0; i < 8; ++i) {
             Color curr = x == 1 ? Color::White : Color::Black;
-            auto* newPow = new Pow(curr);
+            auto* newPow = new Pawn(curr);
             this->_board[x][1] = newPow;
         }
         x = 7;
