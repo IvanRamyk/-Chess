@@ -24,7 +24,7 @@ class Figure {
 public:
     explicit Figure(Color color, FigureType type);
 
-    [[nodiscard]] bool isColor(Figure* figure) const;
+    [[nodiscard]] Color getColor() const;
 
     [[nodiscard]] bool isMoved() const;
 
