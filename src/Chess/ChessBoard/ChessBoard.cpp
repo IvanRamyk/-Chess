@@ -62,7 +62,6 @@ ChessBoard::ChessBoard() {
 }
 
 void ChessBoard::makeMove(class Move move) {
-    //TODO castle moves
     //TODO pawn takes
 
     _prev = move;
@@ -78,6 +77,20 @@ void ChessBoard::makeMove(class Move move) {
             (move.getFigure()->getColor() == Color::Black && move.getEnd().second == 0)) {
 
             pawnTransform(move.getEnd(), move.getFigure()->getType());
+        }
+    }
+
+    if (move.getFigure()->getType() == FigureType::King) {
+        if (abs(move.getEnd().first - move.getBegin().first) == 2) {
+            if (move.getEnd().first > move.getBegin().first) {
+                std::swap(this->_board[move.getBegin().first + 1][move.getBegin().second],
+                          this->_board[move.getBegin().first + 3][move.getBegin().second]);
+            }
+
+            else if (move.getEnd().first < move.getBegin().first) {
+                std::swap(this->_board[move.getBegin().first - 1][move.getBegin().second],
+                          this->_board[move.getBegin().first - 4][move.getBegin().second]);
+            }
         }
     }
 }
