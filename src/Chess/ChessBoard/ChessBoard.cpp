@@ -3,6 +3,8 @@
 //
 
 #include <vector>
+#include <stdexcept>
+#include <iostream>
 
 #include "ChessBoard.h"
 
@@ -62,7 +64,6 @@ ChessBoard::ChessBoard() {
 void ChessBoard::makeMove(class Move move) {
     //TODO castle moves
     //TODO pawn takes
-    //TODO transform pawn
 
     _prev = move;
     _board[move.getEnd().first][move.getEnd().second] =
@@ -71,6 +72,14 @@ void ChessBoard::makeMove(class Move move) {
 
     _board[move.getEnd().first][move.getEnd().second]->markMoved();
 
+
+    if (move.getFigure()->getType() == FigureType::Pawn) {
+        if ((move.getFigure()->getColor() == Color::White && move.getEnd().second == 7) ||
+            (move.getFigure()->getColor() == Color::Black && move.getEnd().second == 0)) {
+
+            pawnTransform(move.getEnd(), move.getFigure()->getType());
+        }
+    }
 }
 
 matrix* ChessBoard::getBoard() {
@@ -272,6 +281,15 @@ Figure *ChessBoard::getFigure(std::pair<int, int> position) {
 }
 
 void ChessBoard::pawnTransform(std::pair<int, int> pos, FigureType to) {
-    auto* newFig = new Figure(this->_board[pos.first][pos.second]->getColor(), to);
+    try {
+        if (to == FigureType::King || to == FigureType::Pawn) {
 
+            throw std::invalid_argument("Wrong figure to transform");
+        }
+        auto *newFig = new Figure(this->_board[pos.first][pos.second]->getColor(), to);
+        this->_board[pos.first][pos.second] = newFig;
+    }
+    catch (std::exception& ex) {
+        std::cout << ex.what() << "\n";
+    }
 }
