@@ -26,7 +26,7 @@ ChessBoard::ChessBoard() {
             Color curr = x == 1 ? Color::White : Color::Black;
             this->_board[i][x] = new Figure(curr, FigureType::Pawn);
         }
-        x = 7;
+        x = 6;
     }
 
     //rooks adding
@@ -73,7 +73,7 @@ void ChessBoard::makeMove(class Move move) {
     }
 
     //En passant
-    if (move.getFigure()->getType() == FigureType::Pawn &&
+    if (move.getFigure()->getType() == FigureType::Pawn && this->_prev.getFigure() &&
             this->_prev.getFigure()->getType() == FigureType::Pawn) {
 
         int moveDirection = move.getFigure()->getColor() == Color::White ? 1 : -1;
@@ -201,9 +201,9 @@ bool ChessBoard::checkMove(Move move) const {
     }
 
     int begin_x = move.getBegin().first;
-    int begin_y = move.getBegin().first;
+    int begin_y = move.getBegin().second;
     int end_x = move.getEnd().first;
-    int end_y = move.getEnd().first;
+    int end_y = move.getEnd().second;
 
     //pawn possible moves
     if (move.getFigure()->getType() == FigureType::Pawn) {
