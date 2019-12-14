@@ -98,6 +98,8 @@ void ChessBoard::makeMove(class Move move) {
                   this->_board[move.getBegin().first - 4][move.getBegin().second]);
     }
 
+    //TODO check check :)
+
     _prev = move;
     _board[move.getEnd().first][move.getEnd().second] =
             _board[move.getBegin().first][move.getBegin().second];
@@ -399,10 +401,6 @@ bool ChessBoard::isCapture(Move move) const {
 }
 
 int ChessBoard::isCastle(Move move) {
-    //TODO check checks
-
-
-
     if (move.getFigure()->getType() == FigureType::King && move.getBegin().second == move.getEnd().second) {
         if (abs(move.getEnd().first - move.getBegin().first) == 2) {
             if (move.getEnd().first > move.getBegin().first) {
