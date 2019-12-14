@@ -401,13 +401,26 @@ bool ChessBoard::isCapture(Move move) const {
 int ChessBoard::isCastle(Move move) {
     //TODO check checks
 
-    if (move.getFigure()->getType() == FigureType::King) {
+
+
+    if (move.getFigure()->getType() == FigureType::King && move.getBegin().second == move.getEnd().second) {
         if (abs(move.getEnd().first - move.getBegin().first) == 2) {
             if (move.getEnd().first > move.getBegin().first) {
+                for (int x = move.getBegin().first; x <= move.getEnd().first; ++x) {
+                    if (isCheck(move.getFigure()->getColor(), {x, move.getBegin().second})) {
+                        return 0;
+                    }
+                }
+
                 return 1;
             }
 
             else if (move.getEnd().first < move.getBegin().first) {
+                for (int x = move.getEnd().first; x <= move.getBegin().first; ++x) {
+                    if (isCheck(move.getFigure()->getColor(), {x, move.getBegin().second})) {
+                        return 0;
+                    }
+                }
                 return 2;
             }
         }

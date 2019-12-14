@@ -28,7 +28,7 @@ public:
 
     //0-0 == 1
     //0-0-0 == 2
-    [[nodiscard]] static int isCastle(Move move) ;
+    [[nodiscard]]  int isCastle(Move move) ;
 
     Figure* getFigure(std::pair<int, int> position);
 
