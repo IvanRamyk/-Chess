@@ -45,6 +45,10 @@ private:
 
     static std::string figureToString(std::pair<int, int> pos, Figure* fig);
 
+    bool selfCheck(Move move) const;
+
+    std::pair<int, int> findKing(Color color) const;
+
     //TODO
     FigureType getTypeToTransform() const;
 };

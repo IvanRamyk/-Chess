@@ -24,7 +24,7 @@ bool ChessGame::makeMove(std::pair <int, int> from, std::pair<int, int> to) {
     bool check = _board.isCheck(move);
     bool checkmate = _board.isCheckmate(move);
     bool capture = _board.isCapture(move);
-    int castle = _board.isCastle(move);
+    int castle = ChessBoard::isCastle(move);
     _board.makeMove(move);
     _moves.emplace_back(move, check, checkmate, capture, castle);
     return true;

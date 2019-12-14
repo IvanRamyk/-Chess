@@ -354,7 +354,7 @@ Figure *ChessBoard::getFigure(std::pair<int, int> position) {
 }
 
 bool ChessBoard::isCheck(Move move) const {
-    return false;
+
 }
 
 bool ChessBoard::isCheckmate(Move move) const {
@@ -379,4 +379,20 @@ int ChessBoard::isCastle(Move move) {
     }
 
     return 0;
+}
+
+bool ChessBoard::selfCheck(Move move) const {}
+
+std::pair<int, int> ChessBoard::findKing(Color color) const {
+    for (int i = 0; i < 8; ++i) {
+        for (int j = 0; j < 8; ++j) {
+            if (this->_board[i][j]->getType() == FigureType::King &&
+                this->_board[i][j]->getColor() == color) {
+
+                return {i, j};
+            }
+        }
+    }
+
+    return {-1 ,-1};
 }
