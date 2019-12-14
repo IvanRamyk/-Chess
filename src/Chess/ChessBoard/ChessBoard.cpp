@@ -196,6 +196,10 @@ bool ChessBoard::checkMove(Move move) const {
         return false;
     }
 
+    if (move.getBegin().first == 4 && move.getBegin().second == 0){
+
+        std::cout << 1;}
+
     int begin_x = move.getBegin().first;
     int begin_y = move.getBegin().second;
     int end_x = move.getEnd().first;
@@ -277,7 +281,8 @@ bool ChessBoard::checkMove(Move move) const {
 
     //king possible moves
     else if (move.getFigure()->getType() == FigureType::King) {
-        if (abs(begin_x - end_x) + abs(begin_y - end_y) == 1) {
+        if (abs(begin_x - end_x) + abs(begin_y - end_y) == 1 ||
+            (abs(begin_x - end_x) == 1 && abs(begin_y - end_y) == 1)) {
             return !(this->_board[end_x][end_y] && this->_board[end_x][end_y]->getColor() == move.getFigure()->getColor());
         }
 

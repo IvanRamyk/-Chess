@@ -11,6 +11,9 @@
 ChessGame::ChessGame(ChessBoard board): _board(std::move(board)) {}
 
 bool ChessGame::makeMove(std::pair <int, int> from, std::pair<int, int> to) {
+    if (from.first == 4 && from.second == 0){
+
+     std::cout << 1;}
     Move move(from, to, _board.getFigure(from));
     if (move.getFigure() == nullptr) {
         return false;

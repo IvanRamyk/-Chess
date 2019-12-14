@@ -8,14 +8,9 @@
 TEST(TestChessGame, TestNotaion){
     ChessGame game((ChessBoard()));
     EXPECT_TRUE(game.makeMove({4, 1}, {4, 3}));//a2-a4
-    EXPECT_TRUE(game.makeMove({1, 6}, {1, 4}));//c7-c5
-
-    EXPECT_TRUE(game.makeMove({4, 3}, {4, 4}));//Kg1-f3
-    EXPECT_TRUE(game.makeMove({1, 4}, {1, 3}));//d7-d6
-
-    EXPECT_TRUE(game.makeMove({1, 1}, {1, 2}));//Сf1-c4
-    EXPECT_TRUE(game.makeMove({5, 6}, {5, 4}));//Сf1-c4
-
-    EXPECT_TRUE(game.makeMove({4, 4}, {5, 5}));//Сf1-c4
+    EXPECT_TRUE(game.makeMove({2, 6}, {2, 4}));//c7-c5
+    EXPECT_TRUE(game.makeMove({6, 0}, {5, 2}));//Kg1-f3
+    EXPECT_TRUE(game.makeMove({3, 6}, {3, 5}));//d7-d6
+    EXPECT_TRUE(game.makeMove({5, 0}, {2, 3}));//Сf1-c4
     std::cout << game.getMoves();
 }
