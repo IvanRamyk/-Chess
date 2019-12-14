@@ -77,8 +77,8 @@ void ChessBoard::makeMove(class Move move) {
             this->_prev.getFigure()->getType() == FigureType::Pawn) {
 
         int moveDirection = move.getFigure()->getColor() == Color::White ? 1 : -1;
-        if (move.getEnd().first - moveDirection == this->_prev.getEnd().first &&
-                move.getEnd().second == this->_prev.getEnd().second) {
+        if (move.getEnd().first == this->_prev.getEnd().first &&
+                move.getEnd().second - moveDirection == this->_prev.getEnd().second) {
 
             this->_board[_prev.getEnd().first][_prev.getEnd().second] = nullptr;
         }
