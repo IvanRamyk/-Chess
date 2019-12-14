@@ -353,8 +353,11 @@ Figure *ChessBoard::getFigure(std::pair<int, int> position) {
     return _board[position.first][position.second];
 }
 
-bool ChessBoard::isCheck(Color color) const {
-    std::pair<int, int> kingPos = findKing(color);
+bool ChessBoard::isCheck(Color color, std::pair<int, int> kingPos) const {
+    if (kingPos.first == -1) {
+        kingPos = findKing(color);
+    }
+
     for (int i = 0; i < 8; ++i) {
         for (int j = 0; j < 8; ++j) {
             if (_board[i][j] && _board[i][j]->getColor() != color) {
@@ -368,8 +371,27 @@ bool ChessBoard::isCheck(Color color) const {
     return false;
 }
 
-bool ChessBoard::isCheckmate(Color color) const {
-    return false;
+bool ChessBoard::isCheckmate(Color color, std::pair<int, int> kingPos) const {
+
+    if (kingPos.first == -1) {
+        kingPos = findKing(color);
+    }
+
+    if (!isCheck(color, kingPos)) {
+        return false;
+    }
+
+    for (int x = kingPos.first - 1; x <= kingPos.first + 1; ++x) {
+        for (int y = kingPos.second - 1; y <= kingPos.second + 1; ++y) {
+            if (!(x == kingPos.first && y == kingPos.second) &&
+                checkMove(Move(kingPos, {x, y}, _board[x][y]))) {
+
+                return false;
+            }
+        }
+    }
+
+    return true;
 }
 
 bool ChessBoard::isCapture(Move move) const {
@@ -377,6 +399,8 @@ bool ChessBoard::isCapture(Move move) const {
 }
 
 int ChessBoard::isCastle(Move move) {
+    //TODO check checks
+
     if (move.getFigure()->getType() == FigureType::King) {
         if (abs(move.getEnd().first - move.getBegin().first) == 2) {
             if (move.getEnd().first > move.getBegin().first) {

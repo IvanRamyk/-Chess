@@ -20,9 +20,9 @@ public:
 
     [[nodiscard]] std::vector<std::string> getField() const;
 
-    [[nodiscard]] bool isCheck(Color color) const;
+    [[nodiscard]] bool isCheck(Color color, std::pair<int, int> kingPos = {-1, -1}) const;
 
-    [[nodiscard]] bool isCheckmate(Color color) const;
+    [[nodiscard]] bool isCheckmate(Color color, std::pair<int, int> kingPos = {-1, -1}) const;
 
     [[nodiscard]] bool isCapture(Move move) const;
 
