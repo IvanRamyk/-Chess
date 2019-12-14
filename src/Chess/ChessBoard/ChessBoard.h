@@ -20,21 +20,15 @@ public:
 
     [[nodiscard]] std::vector<std::string> getField() const;
 
-    bool isCheck(Move move){
-        return false;
-    }
+    [[nodiscard]] bool isCheck(Color color, std::pair<int, int> kingPos = {-1, -1}) const;
 
-    bool isCheckmate(Move move){
-        return false;
-    }
+    [[nodiscard]] bool isCheckmate(Color color, std::pair<int, int> kingPos = {-1, -1}) const;
 
-    bool isCapture(Move move){
-        return _board[move.getEnd().first][move.getEnd().second] != nullptr;
-    }
+    [[nodiscard]] bool isCapture(Move move) const;
 
-    int isCastle(Move move){
-        return 0;
-    }
+    //0-0 == 1
+    //0-0-0 == 2
+    [[nodiscard]]  int isCastle(Move move) ;
 
     Figure* getFigure(std::pair<int, int> position);
 
@@ -50,6 +44,8 @@ private:
     void pawnTransform(std::pair<int, int> pos, FigureType to);
 
     static std::string figureToString(std::pair<int, int> pos, Figure* fig);
+
+    [[nodiscard]] std::pair<int, int> findKing(Color color) const;
 
     //TODO
     FigureType getTypeToTransform() const;

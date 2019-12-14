@@ -85,20 +85,20 @@ void ChessBoard::makeMove(class Move move) {
     }
 
     //castles
-    if (move.getFigure()->getType() == FigureType::King) {
-        if (abs(move.getEnd().first - move.getBegin().first) == 2) {
-            if (move.getEnd().first > move.getBegin().first) {
-                std::swap(this->_board[move.getBegin().first + 1][move.getBegin().second],
-                          this->_board[move.getBegin().first + 3][move.getBegin().second]);
-            }
-
-            else if (move.getEnd().first < move.getBegin().first) {
-                std::swap(this->_board[move.getBegin().first - 1][move.getBegin().second],
-                          this->_board[move.getBegin().first - 4][move.getBegin().second]);
-            }
-        }
+    //0-0 is 1
+    //0-0-0 is 2
+    int castle = isCastle(move);
+    if (castle == 1) {
+        std::swap(this->_board[move.getBegin().first + 1][move.getBegin().second],
+                  this->_board[move.getBegin().first + 3][move.getBegin().second]);
     }
 
+    else if (castle == 2) {
+        std::swap(this->_board[move.getBegin().first - 1][move.getBegin().second],
+                  this->_board[move.getBegin().first - 4][move.getBegin().second]);
+    }
+
+    //TODO check check :)
 
     _prev = move;
     _board[move.getEnd().first][move.getEnd().second] =
@@ -310,10 +310,6 @@ std::vector<std::string> ChessBoard::getField() const {
     return res;
 }
 
-Figure *ChessBoard::getFigure(std::pair<int, int> position) {
-    return _board[position.first][position.second];
-}
-
 void ChessBoard::pawnTransform(std::pair<int, int> pos, FigureType to) {
     try {
         if (to == FigureType::King || to == FigureType::Pawn) {
@@ -354,4 +350,94 @@ std::string ChessBoard::figureToString(std::pair<int, int> pos, Figure* fig) {
     }
 
     return res;
+}
+
+Figure *ChessBoard::getFigure(std::pair<int, int> position) {
+    return _board[position.first][position.second];
+}
+
+bool ChessBoard::isCheck(Color color, std::pair<int, int> kingPos) const {
+    if (kingPos.first == -1) {
+        kingPos = findKing(color);
+    }
+
+    for (int i = 0; i < 8; ++i) {
+        for (int j = 0; j < 8; ++j) {
+            if (_board[i][j] && _board[i][j]->getColor() != color) {
+                if (checkMove(Move({i, j}, kingPos, _board[i][j]))) {
+                    return true;
+                }
+            }
+        }
+    }
+
+    return false;
+}
+
+bool ChessBoard::isCheckmate(Color color, std::pair<int, int> kingPos) const {
+
+    if (kingPos.first == -1) {
+        kingPos = findKing(color);
+    }
+
+    if (!isCheck(color, kingPos)) {
+        return false;
+    }
+
+    for (int x = kingPos.first - 1; x <= kingPos.first + 1; ++x) {
+        for (int y = kingPos.second - 1; y <= kingPos.second + 1; ++y) {
+            if (!(x == kingPos.first && y == kingPos.second) &&
+                checkMove(Move(kingPos, {x, y}, _board[x][y]))) {
+
+                return false;
+            }
+        }
+    }
+
+    return true;
+}
+
+bool ChessBoard::isCapture(Move move) const {
+    return _board[move.getEnd().first][move.getEnd().second] != nullptr;
+}
+
+int ChessBoard::isCastle(Move move) {
+    if (move.getFigure()->getType() == FigureType::King && move.getBegin().second == move.getEnd().second) {
+        if (abs(move.getEnd().first - move.getBegin().first) == 2) {
+            if (move.getEnd().first > move.getBegin().first) {
+                for (int x = move.getBegin().first; x <= move.getEnd().first; ++x) {
+                    if (isCheck(move.getFigure()->getColor(), {x, move.getBegin().second})) {
+                        return 0;
+                    }
+                }
+
+                return 1;
+            }
+
+            else if (move.getEnd().first < move.getBegin().first) {
+                for (int x = move.getEnd().first; x <= move.getBegin().first; ++x) {
+                    if (isCheck(move.getFigure()->getColor(), {x, move.getBegin().second})) {
+                        return 0;
+                    }
+                }
+                return 2;
+            }
+        }
+    }
+
+    return 0;
+}
+
+std::pair<int, int> ChessBoard::findKing(Color color) const {
+    for (int i = 0; i < 8; ++i) {
+        for (int j = 0; j < 8; ++j) {
+            if (this->_board[i][j]->getType() == FigureType::King &&
+                this->_board[i][j]->getColor() == color) {
+
+                return {i, j};
+            }
+        }
+    }
+
+    return {-1 ,-1};
 }
