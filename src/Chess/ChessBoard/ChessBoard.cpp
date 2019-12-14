@@ -353,11 +353,22 @@ Figure *ChessBoard::getFigure(std::pair<int, int> position) {
     return _board[position.first][position.second];
 }
 
-bool ChessBoard::isCheck(Move move) const {
+bool ChessBoard::isCheck(Color color) const {
+    std::pair<int, int> kingPos = findKing(color);
+    for (int i = 0; i < 8; ++i) {
+        for (int j = 0; j < 8; ++j) {
+            if (_board[i][j] && _board[i][j]->getColor() != color) {
+                if (checkMove(Move({i, j}, kingPos, _board[i][j]))) {
+                    return true;
+                }
+            }
+        }
+    }
 
+    return false;
 }
 
-bool ChessBoard::isCheckmate(Move move) const {
+bool ChessBoard::isCheckmate(Color color) const {
     return false;
 }
 
@@ -380,8 +391,6 @@ int ChessBoard::isCastle(Move move) {
 
     return 0;
 }
-
-bool ChessBoard::selfCheck(Move move) const {}
 
 std::pair<int, int> ChessBoard::findKing(Color color) const {
     for (int i = 0; i < 8; ++i) {

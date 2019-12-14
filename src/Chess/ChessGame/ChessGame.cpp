@@ -21,8 +21,8 @@ bool ChessGame::makeMove(std::pair <int, int> from, std::pair<int, int> to) {
         return false;
     }
     std::cout << "ee";
-    bool check = _board.isCheck(move);
-    bool checkmate = _board.isCheckmate(move);
+    bool check = _board.isCheck(move.getFigure()->getColor() == White ? Black : White);
+    bool checkmate = _board.isCheckmate(move.getFigure()->getColor() == White ? Black : White);
     bool capture = _board.isCapture(move);
     int castle = ChessBoard::isCastle(move);
     _board.makeMove(move);

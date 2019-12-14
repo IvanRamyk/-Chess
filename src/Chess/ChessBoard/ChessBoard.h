@@ -20,9 +20,9 @@ public:
 
     [[nodiscard]] std::vector<std::string> getField() const;
 
-    [[nodiscard]] bool isCheck(Move move) const;
+    [[nodiscard]] bool isCheck(Color color) const;
 
-    [[nodiscard]] bool isCheckmate(Move move) const;
+    [[nodiscard]] bool isCheckmate(Color color) const;
 
     [[nodiscard]] bool isCapture(Move move) const;
 
@@ -45,9 +45,7 @@ private:
 
     static std::string figureToString(std::pair<int, int> pos, Figure* fig);
 
-    bool selfCheck(Move move) const;
-
-    std::pair<int, int> findKing(Color color) const;
+    [[nodiscard]] std::pair<int, int> findKing(Color color) const;
 
     //TODO
     FigureType getTypeToTransform() const;
