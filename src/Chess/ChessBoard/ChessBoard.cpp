@@ -24,7 +24,7 @@ ChessBoard::ChessBoard() {
     for (int j = 0; j < 2; ++j) {
         for (int i = 0; i < 8; ++i) {
             Color curr = x == 1 ? Color::White : Color::Black;
-            this->_board[x][1] = new Figure(curr, FigureType::Pawn);
+            this->_board[i][x] = new Figure(curr, FigureType::Pawn);
         }
         x = 7;
     }
