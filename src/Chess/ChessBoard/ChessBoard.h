@@ -18,7 +18,7 @@ public:
 
     [[nodiscard]] bool checkMove(Move move) const;
 
-    matrix* getBoard();
+    [[nodiscard]] std::vector<std::string> getField() const;
 
     bool isCheck(Move move){
         return false;
@@ -48,6 +48,8 @@ private:
     static std::vector<std::pair<int, int>> getBetween(std::pair<int, int> begin, std::pair<int, int> end);
 
     void pawnTransform(std::pair<int, int> pos, FigureType to);
+
+    static std::string figureToString(std::pair<int, int> pos, Figure* fig);
 
     //TODO
     FigureType getTypeToTransform() const;

@@ -108,10 +108,6 @@ void ChessBoard::makeMove(class Move move) {
     _board[move.getEnd().first][move.getEnd().second]->markMoved();
 }
 
-matrix* ChessBoard::getBoard() {
-    return reinterpret_cast<matrix *>(this->_board);
-}
-
 //cells between begin and end
 std::vector<std::pair<int, int>> ChessBoard::getBetween(std::pair<int, int> begin, std::pair<int, int> end) {
     std::vector<std::pair<int, int>> res;
@@ -302,6 +298,10 @@ bool ChessBoard::checkMove(Move move) const {
     else return false;
 }
 
+std::vector<std::string> ChessBoard::getField() const {
+    //std::vector<std::string>
+}
+
 Figure *ChessBoard::getFigure(std::pair<int, int> position) {
     return _board[position.first][position.second];
 }
@@ -318,4 +318,32 @@ void ChessBoard::pawnTransform(std::pair<int, int> pos, FigureType to) {
     catch (std::exception& ex) {
         std::cout << ex.what() << "\n";
     }
+}
+
+std::string ChessBoard::figureToString(std::pair<int, int> pos, Figure* fig) {
+    std::string res{};
+    switch (fig->getType()) {
+        case Pawn: res += 'p'; break;
+
+        case Rook: res += 'r'; break;
+
+        case Knight: res += 'n'; break;
+
+        case Bishop: res += 'b'; break;
+
+        case Queen: res += 'q'; break;
+
+        case King: res += 'k'; break;
+    }
+
+    res += std::to_string(pos.first);
+    res += std::to_string(pos.second);
+
+    switch (fig->getColor()) {
+        case White: res += 'w'; break;
+
+        case Black: res += 'b'; break;
+    }
+
+    return res;
 }
