@@ -7,16 +7,19 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
-    left_board = 100;
-    up_board = 100;
-    height_board = 300;
-    width_board = 300;
     ui->setupUi(this);
+    width = 700;
+    height = 700;
+    this->setFixedSize(width, height);
+    left_board = width / 10;
+    up_board = width / 10;
+    height_board = width * 0.8;
+    width_board = width * 0.8;
     pictures = new Images;
+    this->setWindowTitle("Chess");
     pictures->load();
     field = new Field(pictures, left_board, up_board, height_board, width_board);
     field->redraw();
-    state = State::Game;
 }
 
 MainWindow::~MainWindow()

@@ -23,6 +23,8 @@ public:
 
     [[nodiscard]] std::string getStockfishMoves() const;
 
+    [[nodiscard]] std::vector<std::string> getField() const;
+
 private:
     ChessBoard _board;
     std::vector<MoveNotation> _moves;
