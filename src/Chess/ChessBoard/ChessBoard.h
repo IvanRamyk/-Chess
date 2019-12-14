@@ -46,6 +46,11 @@ private:
     [[nodiscard]] bool checkBetween(Move move) const;
 
     static std::vector<std::pair<int, int>> getBetween(std::pair<int, int> begin, std::pair<int, int> end);
+
+    void pawnTransform(std::pair<int, int> pos, FigureType to);
+
+    //TODO
+    FigureType getTypeToTransform() const;
 };
 
 

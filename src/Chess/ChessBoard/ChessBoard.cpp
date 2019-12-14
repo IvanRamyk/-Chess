@@ -3,6 +3,8 @@
 //
 
 #include <vector>
+#include <stdexcept>
+#include <iostream>
 
 #include "ChessBoard.h"
 
@@ -22,9 +24,9 @@ ChessBoard::ChessBoard() {
     for (int j = 0; j < 2; ++j) {
         for (int i = 0; i < 8; ++i) {
             Color curr = x == 1 ? Color::White : Color::Black;
-            this->_board[x][1] = new Figure(curr, FigureType::Pawn);
+            this->_board[i][x] = new Figure(curr, FigureType::Pawn);
         }
-        x = 7;
+        x = 6;
     }
 
     //rooks adding
@@ -60,9 +62,43 @@ ChessBoard::ChessBoard() {
 }
 
 void ChessBoard::makeMove(class Move move) {
-    //TODO castle moves
-    //TODO pawn takes
-    //TODO transform pawn
+
+    //pawn transform
+    if (move.getFigure()->getType() == FigureType::Pawn) {
+        if ((move.getFigure()->getColor() == Color::White && move.getEnd().second == 7) ||
+            (move.getFigure()->getColor() == Color::Black && move.getEnd().second == 0)) {
+
+            pawnTransform(move.getEnd(), move.getFigure()->getType());
+        }
+    }
+
+    //En passant
+    if (move.getFigure()->getType() == FigureType::Pawn && this->_prev.getFigure() &&
+            this->_prev.getFigure()->getType() == FigureType::Pawn) {
+
+        int moveDirection = move.getFigure()->getColor() == Color::White ? 1 : -1;
+        if (move.getEnd().first - moveDirection == this->_prev.getEnd().first &&
+                move.getEnd().second == this->_prev.getEnd().second) {
+
+            this->_board[_prev.getEnd().first][_prev.getEnd().second] = nullptr;
+        }
+    }
+
+    //castles
+    if (move.getFigure()->getType() == FigureType::King) {
+        if (abs(move.getEnd().first - move.getBegin().first) == 2) {
+            if (move.getEnd().first > move.getBegin().first) {
+                std::swap(this->_board[move.getBegin().first + 1][move.getBegin().second],
+                          this->_board[move.getBegin().first + 3][move.getBegin().second]);
+            }
+
+            else if (move.getEnd().first < move.getBegin().first) {
+                std::swap(this->_board[move.getBegin().first - 1][move.getBegin().second],
+                          this->_board[move.getBegin().first - 4][move.getBegin().second]);
+            }
+        }
+    }
+
 
     _prev = move;
     _board[move.getEnd().first][move.getEnd().second] =
@@ -70,7 +106,6 @@ void ChessBoard::makeMove(class Move move) {
     _board[move.getBegin().first][move.getBegin().second] = nullptr;
 
     _board[move.getEnd().first][move.getEnd().second]->markMoved();
-
 }
 
 matrix* ChessBoard::getBoard() {
@@ -144,13 +179,13 @@ std::vector<std::pair<int, int>> ChessBoard::getBetween(std::pair<int, int> begi
 bool ChessBoard::checkBetween(Move move) const {
     int end_x = move.getEnd().first;
     int end_y = move.getEnd().second;
-    if (this->_board[end_x][end_y] && this->_board[end_x][end_y]->isColor(move.getFigure())) {
+    if (this->_board[end_x][end_y] && this->_board[end_x][end_y]->getColor() == move.getFigure()->getColor()) {
         return false;
     }
 
     auto between = getBetween(move.getBegin(), move.getEnd());
     for (const auto& [x, y] : between) {
-        if (this->_board[x][y] && this->_board[x][y]->isColor(move.getFigure())) {
+        if (this->_board[x][y] && this->_board[x][y]->getColor() == move.getFigure()->getColor()) {
             return false;
         }
     }
@@ -166,14 +201,14 @@ bool ChessBoard::checkMove(Move move) const {
     }
 
     int begin_x = move.getBegin().first;
-    int begin_y = move.getBegin().first;
+    int begin_y = move.getBegin().second;
     int end_x = move.getEnd().first;
-    int end_y = move.getEnd().first;
+    int end_y = move.getEnd().second;
 
     //pawn possible moves
     if (move.getFigure()->getType() == FigureType::Pawn) {
         int step = 1;
-        if (move.getFigure()->isColor(new Figure(Color::Black, FigureType::Pawn))) {
+        if (move.getFigure()->getColor() == Color::Black) {
             step *= -1;
         }
 
@@ -188,7 +223,7 @@ bool ChessBoard::checkMove(Move move) const {
             }
 
         if (abs(begin_x - end_x) == 1 && begin_y + step == end_y) {
-            if (this->_board[end_x][end_y] && !this->_board[end_x][end_y]->isColor(move.getFigure())) {
+            if (this->_board[end_x][end_y] && !this->_board[end_x][end_y]->getColor() == move.getFigure()->getColor()) {
                 return true;
             }
 
@@ -213,7 +248,7 @@ bool ChessBoard::checkMove(Move move) const {
                abs(begin_x - end_x) + abs(begin_y - end_y) == 3 &&
 
                (this->_board[end_x][end_y] == nullptr ||
-               !this->_board[end_x][end_y]->isColor(move.getFigure()));
+               !this->_board[end_x][end_y]->getColor() == move.getFigure()->getColor());
     }
 
     //bishop possible moves
@@ -247,7 +282,7 @@ bool ChessBoard::checkMove(Move move) const {
     //king possible moves
     else if (move.getFigure()->getType() == FigureType::King) {
         if (abs(begin_x - end_x) + abs(begin_y - end_y) == 1) {
-            return !(this->_board[end_x][end_y] && this->_board[end_x][end_y]->isColor(move.getFigure()));
+            return !(this->_board[end_x][end_y] && this->_board[end_x][end_y]->getColor() == move.getFigure()->getColor());
         }
 
         if (!move.getFigure()->isMoved()) {
@@ -271,3 +306,16 @@ Figure *ChessBoard::getFigure(std::pair<int, int> position) {
     return _board[position.first][position.second];
 }
 
+void ChessBoard::pawnTransform(std::pair<int, int> pos, FigureType to) {
+    try {
+        if (to == FigureType::King || to == FigureType::Pawn) {
+
+            throw std::invalid_argument("Wrong figure to transform");
+        }
+        auto *newFig = new Figure(this->_board[pos.first][pos.second]->getColor(), to);
+        this->_board[pos.first][pos.second] = newFig;
+    }
+    catch (std::exception& ex) {
+        std::cout << ex.what() << "\n";
+    }
+}

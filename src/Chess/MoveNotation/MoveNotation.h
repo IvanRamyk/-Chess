@@ -10,13 +10,11 @@
 
 class MoveNotation {
 public:
-    MoveNotation(Move move, bool check = false, bool checkmate = false, bool capture = false, int castle = 0);
+    explicit MoveNotation(Move move, bool check = false, bool checkmate = false, bool capture = false, int castle = 0);
 
-    std::string getNotation() const;
+    [[nodiscard]] std::string getNotation() const;
 
-    Move getMove(){
-        return _move;
-    }
+    [[nodiscard]] Move getMove() const;
 private:
     Move _move;
     bool _check;
