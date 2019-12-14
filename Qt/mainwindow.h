@@ -4,6 +4,8 @@
 #include <QMainWindow>
 #include <QPainter>
 #include <QMenuBar>
+#include <QMouseEvent>
+#include <QPoint>
 #include <string>
 #include <iostream>
 #include "images.h"
@@ -19,8 +21,8 @@ class MainWindow : public QMainWindow
 {
     Q_OBJECT
 enum State {
-    Game,
-    Pending
+    Select,
+    Move
 };
 
 public:
@@ -36,7 +38,10 @@ protected:
                               ->geometry().height()+field->getY(), field->getImage());
     }
     void mousePressEvent (QMouseEvent *event) {
-
+        QPoint position=event->pos();
+        QPoint on_field = field->getCoordinate(position.x(), position.y());
+        field->handleClick(on_field);
+        this->update();
     }
 private slots:
     void actionStart(){
@@ -47,7 +52,7 @@ private:
     Images *pictures;
     Field *field;
     State state;
-    int left_board, up_board, width_board, height_board;
+    int height, width, left_board, up_board, height_board, width_board;
 
 };
 #endif // MAINWINDOW_H

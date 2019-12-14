@@ -11,7 +11,7 @@ class Images
 public:
     Images() = default;
     void load(){
-        images.insert("board", QImage("../Qt/backboard.png"));
+        images.insert("board", QImage("../Qt/Board.png"));
         images.insert("white pawn", QImage("../Qt/pawn1.png"));
         images.insert("black pawn", QImage("../Qt/pawn.png"));
         images.insert("white knight", QImage("../Qt/horse1.png"));
