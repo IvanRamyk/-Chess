@@ -62,16 +62,8 @@ ChessBoard::ChessBoard() {
 }
 
 void ChessBoard::makeMove(class Move move) {
-    //TODO pawn takes
 
-    _prev = move;
-    _board[move.getEnd().first][move.getEnd().second] =
-            _board[move.getBegin().first][move.getBegin().second];
-    _board[move.getBegin().first][move.getBegin().second] = nullptr;
-
-    _board[move.getEnd().first][move.getEnd().second]->markMoved();
-
-
+    //pawn transform
     if (move.getFigure()->getType() == FigureType::Pawn) {
         if ((move.getFigure()->getColor() == Color::White && move.getEnd().second == 7) ||
             (move.getFigure()->getColor() == Color::Black && move.getEnd().second == 0)) {
@@ -80,6 +72,19 @@ void ChessBoard::makeMove(class Move move) {
         }
     }
 
+    //En passant
+    if (move.getFigure()->getType() == FigureType::Pawn &&
+            this->_prev.getFigure()->getType() == FigureType::Pawn) {
+
+        int moveDirection = move.getFigure()->getColor() == Color::White ? 1 : -1;
+        if (move.getEnd().first - moveDirection == this->_prev.getEnd().first &&
+                move.getEnd().second == this->_prev.getEnd().second) {
+
+            this->_board[_prev.getEnd().first][_prev.getEnd().second] = nullptr;
+        }
+    }
+
+    //castles
     if (move.getFigure()->getType() == FigureType::King) {
         if (abs(move.getEnd().first - move.getBegin().first) == 2) {
             if (move.getEnd().first > move.getBegin().first) {
@@ -93,6 +98,14 @@ void ChessBoard::makeMove(class Move move) {
             }
         }
     }
+
+
+    _prev = move;
+    _board[move.getEnd().first][move.getEnd().second] =
+            _board[move.getBegin().first][move.getBegin().second];
+    _board[move.getBegin().first][move.getBegin().second] = nullptr;
+
+    _board[move.getEnd().first][move.getEnd().second]->markMoved();
 }
 
 matrix* ChessBoard::getBoard() {
