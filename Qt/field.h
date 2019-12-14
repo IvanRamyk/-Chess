@@ -29,6 +29,11 @@ public:
         updateField();
         image->fill(0);
         QPainter painter(image);
+        if (state == State::Move){
+            int i = selectedCell.first, j = selectedCell.second;
+            painter.drawImage(QRect(i * cell_width, j * cell_height, cell_width, cell_height),images->get("selected cell"));
+            std::cout << "Hey you\n";
+        }
         for (int i=0;i<8;i++)
                 for (int j=0;j<8;j++){
                     //painter.drawRect(QRect(i * cell_width, j * cell_height, cell_width, cell_height),Qt::lightGray);

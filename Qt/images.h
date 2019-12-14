@@ -24,6 +24,7 @@ public:
         images.insert("black queen", QImage("../Qt/queen.png"));
         images.insert("white king", QImage("../Qt/king1.png"));
         images.insert("black king", QImage("../Qt/king.png"));
+        images.insert("selected cell", QImage("../Qt/selected.jpg"));
     }
     QImage& get(const QString& imgName){
         return images[imgName];
