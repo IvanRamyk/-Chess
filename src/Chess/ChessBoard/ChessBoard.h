@@ -20,21 +20,15 @@ public:
 
     [[nodiscard]] std::vector<std::string> getField() const;
 
-    bool isCheck(Move move){
-        return false;
-    }
+    [[nodiscard]] bool isCheck(Move move) const;
 
-    bool isCheckmate(Move move){
-        return false;
-    }
+    [[nodiscard]] bool isCheckmate(Move move) const;
 
-    bool isCapture(Move move){
-        return _board[move.getEnd().first][move.getEnd().second] != nullptr;
-    }
+    [[nodiscard]] bool isCapture(Move move) const;
 
-    int isCastle(Move move){
-        return 0;
-    }
+    //0-0 == 1
+    //0-0-0 == 2
+    [[nodiscard]] static int isCastle(Move move) ;
 
     Figure* getFigure(std::pair<int, int> position);
 

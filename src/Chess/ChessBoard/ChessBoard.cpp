@@ -85,20 +85,18 @@ void ChessBoard::makeMove(class Move move) {
     }
 
     //castles
-    if (move.getFigure()->getType() == FigureType::King) {
-        if (abs(move.getEnd().first - move.getBegin().first) == 2) {
-            if (move.getEnd().first > move.getBegin().first) {
-                std::swap(this->_board[move.getBegin().first + 1][move.getBegin().second],
-                          this->_board[move.getBegin().first + 3][move.getBegin().second]);
-            }
-
-            else if (move.getEnd().first < move.getBegin().first) {
-                std::swap(this->_board[move.getBegin().first - 1][move.getBegin().second],
-                          this->_board[move.getBegin().first - 4][move.getBegin().second]);
-            }
-        }
+    //0-0 is 1
+    //0-0-0 is 2
+    int castle = isCastle(move);
+    if (castle == 1) {
+        std::swap(this->_board[move.getBegin().first + 1][move.getBegin().second],
+                  this->_board[move.getBegin().first + 3][move.getBegin().second]);
     }
 
+    else if (castle == 2) {
+        std::swap(this->_board[move.getBegin().first - 1][move.getBegin().second],
+                  this->_board[move.getBegin().first - 4][move.getBegin().second]);
+    }
 
     _prev = move;
     _board[move.getEnd().first][move.getEnd().second] =
@@ -309,10 +307,6 @@ std::vector<std::string> ChessBoard::getField() const {
     return res;
 }
 
-Figure *ChessBoard::getFigure(std::pair<int, int> position) {
-    return _board[position.first][position.second];
-}
-
 void ChessBoard::pawnTransform(std::pair<int, int> pos, FigureType to) {
     try {
         if (to == FigureType::King || to == FigureType::Pawn) {
@@ -353,4 +347,36 @@ std::string ChessBoard::figureToString(std::pair<int, int> pos, Figure* fig) {
     }
 
     return res;
+}
+
+Figure *ChessBoard::getFigure(std::pair<int, int> position) {
+    return _board[position.first][position.second];
+}
+
+bool ChessBoard::isCheck(Move move) const {
+    return false;
+}
+
+bool ChessBoard::isCheckmate(Move move) const {
+    return false;
+}
+
+bool ChessBoard::isCapture(Move move) const {
+    return _board[move.getEnd().first][move.getEnd().second] != nullptr;
+}
+
+int ChessBoard::isCastle(Move move) {
+    if (move.getFigure()->getType() == FigureType::King) {
+        if (abs(move.getEnd().first - move.getBegin().first) == 2) {
+            if (move.getEnd().first > move.getBegin().first) {
+                return 1;
+            }
+
+            else if (move.getEnd().first < move.getBegin().first) {
+                return 2;
+            }
+        }
+    }
+
+    return 0;
 }
