@@ -299,7 +299,14 @@ bool ChessBoard::checkMove(Move move) const {
 }
 
 std::vector<std::string> ChessBoard::getField() const {
-    //std::vector<std::string>
+    std::vector<std::string> res;
+    for (int i = 0; i < 8; ++i) {
+        for (int j = 0; j < 8; ++j) {
+            res.push_back(figureToString({i, j}, _board[i][j]));
+        }
+    }
+
+    return res;
 }
 
 Figure *ChessBoard::getFigure(std::pair<int, int> position) {
