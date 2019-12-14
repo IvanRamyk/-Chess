@@ -13,14 +13,12 @@ ChessGame::ChessGame(ChessBoard board): _board(std::move(board)) {}
 bool ChessGame::makeMove(std::pair <int, int> from, std::pair<int, int> to) {
     Move move(from, to, _board.getFigure(from));
     if (move.getFigure() == nullptr) {
-        std::cout << "get figure returns false";
         return false;
     }
     if (!_board.checkMove(move)) {
         std::cout << "check move returns false\n";
         return false;
     }
-    std::cout << "ee";
     bool check = _board.isCheck(move.getFigure()->getColor() == White ? Black : White);
     bool checkmate = _board.isCheckmate(move.getFigure()->getColor() == White ? Black : White);
     bool capture = _board.isCapture(move);
@@ -46,5 +44,9 @@ std::string ChessGame::getStockfishMoves() const {
         res += (move_notation.getMove().getStockfishMove() + " ");
     res.erase(res.end() - 1);
     return res;
+}
+
+std::vector<std::string> ChessGame::getField() const {
+    return _board.getField();
 }
 
