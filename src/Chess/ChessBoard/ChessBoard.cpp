@@ -431,7 +431,7 @@ int ChessBoard::isCastle(Move move) {
 std::pair<int, int> ChessBoard::findKing(Color color) const {
     for (int i = 0; i < 8; ++i) {
         for (int j = 0; j < 8; ++j) {
-            if (this->_board[i][j]->getType() == FigureType::King &&
+            if (this->_board[i][j] && this->_board[i][j]->getType() == FigureType::King &&
                 this->_board[i][j]->getColor() == color) {
 
                 return {i, j};
