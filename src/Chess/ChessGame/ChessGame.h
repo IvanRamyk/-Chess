@@ -19,6 +19,8 @@ public:
 
     bool makeMove(std::pair<int,int>, std::pair<int, int>);
 
+    [[nodiscard]] Figure * getFigure(std::pair<int, int> pos) const;
+
     [[nodiscard]] std::string getMoves() const;
 
     [[nodiscard]] std::string getStockfishMoves() const;

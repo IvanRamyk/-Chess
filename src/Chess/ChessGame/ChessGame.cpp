@@ -11,9 +11,6 @@
 ChessGame::ChessGame(ChessBoard board): _board(std::move(board)) {}
 
 bool ChessGame::makeMove(std::pair <int, int> from, std::pair<int, int> to) {
-    if (from.first == 6 && from.second == 1){
-
-     std::cout << 1;}
     Move move(from, to, _board.getFigure(from));
     if (move.getFigure() == nullptr) {
         return false;
@@ -31,6 +28,11 @@ bool ChessGame::makeMove(std::pair <int, int> from, std::pair<int, int> to) {
     }
     _moves.emplace_back(move, check, checkmate, capture, castle);
     return true;
+}
+
+
+Figure * ChessGame::getFigure(std::pair<int, int> pos) const {
+    return _board.getFigure(pos);
 }
 
 std::string ChessGame::getMoves() const {

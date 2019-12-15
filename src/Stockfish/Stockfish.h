@@ -11,13 +11,14 @@
 
 class Stockfish {
 public:
-    explicit Stockfish(const ChessGame& game, int depth = 10);
+    explicit Stockfish(ChessGame& game, int depth = 10);
 
     [[nodiscard]] Move getMove() const;
 private:
     const std::string _COMMANDS_PATH = "stockfish-script/commands.txt";
     const std::string _RES_PATH = "stockfish-script/res.sh";
 
+    ChessGame _game;
     std::string _pos;
     double _eval;
     std::string _bestMove;
