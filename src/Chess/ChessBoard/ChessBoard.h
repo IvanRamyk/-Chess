@@ -14,7 +14,7 @@ class ChessBoard {
 public:
     ChessBoard();
 
-    void makeMove(Move move);
+    bool makeMove(Move move);
 
     [[nodiscard]] bool checkMove(Move move) const;
 
@@ -28,7 +28,7 @@ public:
 
     //0-0 == 1
     //0-0-0 == 2
-    [[nodiscard]]  int isCastle(Move move) ;
+    [[nodiscard]]  int isCastle(Move move) const;
 
     Figure* getFigure(std::pair<int, int> position);
 
