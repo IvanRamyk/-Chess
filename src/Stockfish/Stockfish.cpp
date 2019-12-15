@@ -10,7 +10,7 @@
 Stockfish::Stockfish(ChessGame &game, int depth) {
     this->_game = game;
     this->_pos = game.getStockfishMoves();
-    this->_eval = 0;
+    this->_eval = getEval(depth);
     this->_bestMove = getBestMove(depth);
 }
 
@@ -36,6 +36,35 @@ std::string Stockfish::getBestMove(int depth) {
     return bestMove;
 }
 
+double Stockfish::getEval(int depth) {
+    std::ifstream res(_RES_PATH);
+    std::ofstream commands(_COMMANDS_PATH);
+
+    commands << "position startpos moves " << _pos << "\n";
+    commands << "eval depth " << depth << "\n";
+    commands << "quit\n";
+
+
+    system("cd stockfish-script && ./script.sh");
+
+    std::string line{};
+    while (res) {
+        res >> line;
+    }
+    std::string eval{};
+    std::stringstream ss{line};
+
+    while(ss.peek() != ':') {
+        ss.ignore();
+    }
+    ss.ignore();
+
+    double evalRes;
+    ss >> evalRes;
+
+    return evalRes;
+}
+
 Move Stockfish::getMove() const {
     int x1, x2, y1, y2;
     x1 = _bestMove[0] - 'a';
@@ -44,4 +73,8 @@ Move Stockfish::getMove() const {
     y2 = (int)_bestMove[3] - '0';
 
     return Move({x1, y1}, {x2, y2}, _game.getFigure({x1, x2}));
+}
+
+double Stockfish::getEvaluation() const {
+    return _eval;
 }

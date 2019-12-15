@@ -14,6 +14,8 @@ public:
     explicit Stockfish(ChessGame& game, int depth = 10);
 
     [[nodiscard]] Move getMove() const;
+
+    [[nodiscard]] double getEvaluation() const;
 private:
     const std::string _COMMANDS_PATH = "stockfish-script/commands.txt";
     const std::string _RES_PATH = "stockfish-script/res.sh";
@@ -24,6 +26,8 @@ private:
     std::string _bestMove;
 
     std::string getBestMove(int depth);
+
+    double getEval(int depth);
 };
 
 
