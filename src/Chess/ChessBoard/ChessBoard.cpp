@@ -287,14 +287,7 @@ bool ChessBoard::checkMove(Move move) const {
         }
 
         if (!move.getFigure()->isMoved()) {
-            if (begin_x == end_x - 2 && begin_y == end_y) {
-                return !this->_board[begin_x + 3][begin_y]->isMoved() &&
-                    checkBetween(Move({begin_x, begin_y}, {begin_x + 3, begin_y}, move.getFigure()));
-            }
-            else if (begin_x == end_x + 2 && begin_y == end_y) {
-                return !this->_board[begin_x - 4][begin_y]->isMoved() &&
-                        checkBetween(Move({begin_x, begin_y}, {begin_x - 4, begin_y}, move.getFigure()));
-            }
+            return this->isCastle(move) != 0;
         }
 
         return false;
@@ -406,7 +399,7 @@ bool ChessBoard::isCapture(Move move) const {
     return _board[move.getEnd().first][move.getEnd().second] != nullptr;
 }
 
-int ChessBoard::isCastle(Move move) {
+int ChessBoard::isCastle(Move move) const {
     if (move.getFigure()->getType() == FigureType::King && move.getBegin().second == move.getEnd().second) {
         if (abs(move.getEnd().first - move.getBegin().first) == 2) {
             if (move.getEnd().first > move.getBegin().first) {
