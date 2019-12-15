@@ -198,7 +198,7 @@ bool ChessBoard::checkBetween(Move move) const {
 
     auto between = getBetween(move.getBegin(), move.getEnd());
     for (const auto& [x, y] : between) {
-        if (this->_board[x][y] && this->_board[x][y]->getColor() == move.getFigure()->getColor()) {
+        if (this->_board[x][y]) {
             return false;
         }
     }
