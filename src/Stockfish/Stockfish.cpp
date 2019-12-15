@@ -10,24 +10,28 @@
 Stockfish::Stockfish(ChessGame &game, int depth) {
     this->_game = game;
     this->_pos = game.getStockfishMoves();
-    this->_eval = getEval(depth);
     this->_bestMove = getBestMove(depth);
+    this->_eval = getEval(depth);
 }
 
 std::string Stockfish::getBestMove(int depth) {
-    std::ifstream res(_RES_PATH);
+    std::ofstream r(_RES_PATH, std::ofstream::out | std::ofstream::trunc); r.close();
     std::ofstream commands(_COMMANDS_PATH);
 
     commands << "position startpos moves " << _pos << "\n";
     commands << "go depth " << depth << "\n";
-    commands << "quit\n";
+    commands << "quit";
+    commands.close();
 
+    system("cd .. && cd src && cd Stockfish && cd stockfish-script && ./script.sh");
 
-    system("cd stockfish-script && ./script.sh");
-
+    std::ifstream res(_RES_PATH);
     std::string line{};
     while (res) {
-        res >> line;
+        if (line[0] == 'b') {
+            break;
+        }
+        getline(res, line);
     }
     std::string bestMove{};
     std::stringstream ss{line};
@@ -37,19 +41,23 @@ std::string Stockfish::getBestMove(int depth) {
 }
 
 double Stockfish::getEval(int depth) {
-    std::ifstream res(_RES_PATH);
+    std::ofstream r(_RES_PATH, std::ofstream::out | std::ofstream::trunc); r.close();
     std::ofstream commands(_COMMANDS_PATH);
 
     commands << "position startpos moves " << _pos << "\n";
     commands << "eval depth " << depth << "\n";
     commands << "quit\n";
+    commands.close();
 
+    system("cd .. && cd src && cd Stockfish && cd stockfish-script && ./script.sh");
 
-    system("cd stockfish-script && ./script.sh");
-
+    std::ifstream res(_RES_PATH);
     std::string line{};
     while (res) {
-        res >> line;
+        if (line[0] == 'T') {
+            break;
+        }
+        getline(res, line);
     }
     std::string eval{};
     std::stringstream ss{line};

@@ -17,8 +17,8 @@ public:
 
     [[nodiscard]] double getEvaluation() const;
 private:
-    const std::string _COMMANDS_PATH = "stockfish-script/commands.txt";
-    const std::string _RES_PATH = "stockfish-script/res.sh";
+    const std::string _COMMANDS_PATH = "/home/hryhorchuk117/CLionProjects/QChess/src/Stockfish/stockfish-script/commands.txt";
+    const std::string _RES_PATH = "/home/hryhorchuk117/CLionProjects/QChess/src/Stockfish/stockfish-script/res.txt";
 
     ChessGame _game;
     std::string _pos;

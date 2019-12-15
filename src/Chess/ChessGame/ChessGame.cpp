@@ -49,7 +49,7 @@ std::string ChessGame::getStockfishMoves() const {
     std::string res;
     for (auto move_notation : this->_moves)
         res += (move_notation.getMove().getStockfishMove() + " ");
-    res.erase(res.end() - 1);
+    //res.erase(res.end() - 1);
     return res;
 }
 
