@@ -77,8 +77,8 @@ Move Stockfish::getMove() const {
     int x1, x2, y1, y2;
     x1 = _bestMove[0] - 'a';
     x2 = _bestMove[2] - 'a';
-    y1 = (int)_bestMove[1] - '0';
-    y2 = (int)_bestMove[3] - '0';
+    y1 = (int)_bestMove[1] - '0' - 1;
+    y2 = (int)_bestMove[3] - '0' - 1;
 
     return Move({x1, y1}, {x2, y2}, _game.getFigure({x1, x2}));
 }
