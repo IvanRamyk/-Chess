@@ -11,7 +11,7 @@
 ChessGame::ChessGame(ChessBoard board): _board(std::move(board)) {}
 
 bool ChessGame::makeMove(std::pair <int, int> from, std::pair<int, int> to) {
-    if (from.first == 4 && from.second == 0){
+    if (from.first == 3 && from.second == 7){
 
      std::cout << 1;}
     Move move(from, to, _board.getFigure(from));
@@ -26,7 +26,9 @@ bool ChessGame::makeMove(std::pair <int, int> from, std::pair<int, int> to) {
     bool checkmate = _board.isCheckmate(move.getFigure()->getColor() == White ? Black : White);
     bool capture = _board.isCapture(move);
     int castle = _board.isCastle(move);
-    _board.makeMove(move);
+    if (!_board.makeMove(move)) {
+        return false;
+    }
     _moves.emplace_back(move, check, checkmate, capture, castle);
     return true;
 }

@@ -61,7 +61,14 @@ ChessBoard::ChessBoard() {
     this->_board[4][7] = new Figure(Color::Black, FigureType::King);
 }
 
-void ChessBoard::makeMove(class Move move) {
+bool ChessBoard::makeMove(class Move move) {
+
+    matrix copyBoard;
+    for (int i = 0; i < 8; ++i) {
+        for (int j = 0; j < 8; ++j) {
+            copyBoard[i][j] = this->_board[i][j];
+        }
+    }
 
     //pawn transform
     if (move.getFigure()->getType() == FigureType::Pawn) {
@@ -105,7 +112,17 @@ void ChessBoard::makeMove(class Move move) {
             _board[move.getBegin().first][move.getBegin().second];
     _board[move.getBegin().first][move.getBegin().second] = nullptr;
 
+    if (isCheck(move.getFigure()->getColor())) {
+        for (int i = 0; i < 8; ++i) {
+            for (int j = 0; j < 8; ++j) {
+                this->_board[i][j] = copyBoard[i][j];
+            }
+        }
+        return false;
+    }
+
     _board[move.getEnd().first][move.getEnd().second]->markMoved();
+    return true;
 }
 
 //cells between begin and end
@@ -131,7 +148,7 @@ std::vector<std::pair<int, int>> ChessBoard::getBetween(std::pair<int, int> begi
         return res;
     }
 
-    if (abs(begin.first - end.first) != abs(begin.second - end.second)) {
+    if (abs(begin.first - end.first) == abs(begin.second - end.second)) {
         if (begin.first > end.first && begin.second > end.second) {
             int j = 1;
             for (int i = end.first + 1; i < begin.first; ++i) {
@@ -144,7 +161,7 @@ std::vector<std::pair<int, int>> ChessBoard::getBetween(std::pair<int, int> begi
         if (begin.first > end.first && begin.second < end.second) {
             int j = 1;
             for (int i = end.first + 1; i < begin.first; ++i) {
-                res.emplace_back(i, begin.second + j);
+                res.emplace_back(i, end.second - j);
                 ++j;
             }
             return res;
@@ -153,7 +170,7 @@ std::vector<std::pair<int, int>> ChessBoard::getBetween(std::pair<int, int> begi
         if (begin.first < end.first && begin.second > end.second) {
             int j = 1;
             for (int i = begin.first + 1; i < end.first; ++i) {
-                res.emplace_back(i, end.second + j);
+                res.emplace_back(i, begin.second - j);
                 ++j;
             }
             return res;
