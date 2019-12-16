@@ -54,9 +54,6 @@ private:
     [[nodiscard]] std::pair<int, int> findKing(Color color) const;
 
     [[nodiscard]] bool possibleMove(Color color);
-
-    //TODO
-    FigureType getTypeToTransform() const;
 };
 
 
