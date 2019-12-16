@@ -8,6 +8,8 @@
 #include "../Figure/Figure.h"
 #include "../Move/Move.h"
 
+#include <vector>
+
 using matrix = Figure*[8][8];
 
 class ChessBoard {

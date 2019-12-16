@@ -8,10 +8,13 @@
 #include <QLabel>
 #include <QTextBrowser>
 #include <QPoint>
+#include <QCheckBox>
 #include <string>
 #include <iostream>
+#include <string>
 #include "images.h"
 #include "field.h"
+#include "../src/Stockfish/Stockfish.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -56,11 +59,25 @@ protected:
         notation->setText(QString::fromUtf8(field->getNotation().c_str()));
         notation->show();
 
+        evaluation->clear();
+        if (stockfish_evaluation->isChecked()){
+
+            evaluation->setGeometry(width*0.85, height*0.018, width*0.2, width*0.05);
+            evaluation->setStyleSheet("background-color: transparent;\n"
+                                      "font-size:18pt;\n"
+                                      "text-align: center;");
+
+            evaluation->setText(QString::fromUtf8((std::to_string(field->getEvaluation())).c_str()));
+            evaluation->show();
+        }
+
+
     }
     void mousePressEvent (QMouseEvent *event) {
         QPoint position=event->pos();
         QPoint on_field = field->getCoordinate(position.x(), position.y());
-        field->handleClick(on_field);
+        if (on_field.x() != -1)
+            field->handleClick(on_field);
         this->update();
     }
 private slots:
@@ -75,6 +92,9 @@ private:
     int height, width, left_board, up_board, height_board, width_board;
     QTextBrowser *move_color;
     QTextBrowser *notation;
+    QTextBrowser *evaluation;
+    QCheckBox *stockfish_evaluation;
+
 
 };
 #endif // MAINWINDOW_H
