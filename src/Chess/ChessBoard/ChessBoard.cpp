@@ -470,9 +470,11 @@ bool ChessBoard::possibleMove(Color color) {
                 for (int x = 0; x < 8; ++x) {
                     for (int y = 0; y < 8; ++y) {
                         if (!(i == x && j == y)) {
-                            if (checkMove(Move(Move({i, j}, {x, y}, _board[i][j]))) &&
+                            auto currFig = _board[x][y];
+                            if (checkMove(Move({i, j}, {x, y}, _board[i][j])) &&
                                 makeMove(Move({i, j}, {x, y}, _board[i][j]))) {
-                                makeMove(Move({x, y}, {i, j}, _board[x][y]));
+                                _board[i][j] = _board[x][y];
+                                _board[x][y] = currFig;
                                 return true;
                             }
                         }
