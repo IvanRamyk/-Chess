@@ -392,7 +392,7 @@ bool ChessBoard::isCheck(Color color, std::pair<int, int> kingPos) const {
     return false;
 }
 
-bool ChessBoard::isCheckmate(Color color, std::pair<int, int> kingPos) const {
+bool ChessBoard::isCheckmate(Color color, std::pair<int, int> kingPos) {
 
     if (kingPos.first == -1) {
         kingPos = findKing(color);
@@ -408,7 +408,9 @@ bool ChessBoard::isCheckmate(Color color, std::pair<int, int> kingPos) const {
                 for (int x = 0; x < 8; ++x) {
                     for (int y = 0; y < 8; ++y) {
                         if (!(i == x && j == y)) {
-                            if (checkMove(Move({i, j}, {x, y}, _board[i][j]))) {
+                            if (checkMove(Move(Move({i, j}, {x, y}, _board[i][j]))) &&
+                                makeMove(Move({i, j}, {x, y}, _board[i][j]))) {
+                                makeMove(Move({x, y}, {i, j}, _board[x][y]));
                                 return false;
                             }
                         }

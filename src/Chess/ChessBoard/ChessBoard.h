@@ -26,7 +26,7 @@ public:
 
     [[nodiscard]] bool isCheck(Color color, std::pair<int, int> kingPos = {-1, -1}) const;
 
-    [[nodiscard]] bool isCheckmate(Color color, std::pair<int, int> kingPos = {-1, -1}) const;
+    [[nodiscard]] bool isCheckmate(Color color, std::pair<int, int> kingPos = {-1, -1});
 
     [[nodiscard]] bool isCapture(Move move) const;
 

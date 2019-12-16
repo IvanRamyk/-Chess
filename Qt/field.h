@@ -150,9 +150,9 @@ public:
                 changeColor();
                 state = Select;
             }
-            //if (game.isCheckmate(Black) || game.isCheckmate(White)){
+            if (game.isCheckmate(Black) || game.isCheckmate(White)){
                 state = Checkmate;
-            //}
+            }
         }
 
         redraw();
