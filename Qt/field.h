@@ -14,7 +14,8 @@
 enum State {
     Select,
     Move,
-    Checkmate
+    Checkmate,
+    Stalemate
 };
 
 class Field
@@ -150,9 +151,13 @@ public:
                 changeColor();
                 state = Select;
             }
-            //if (game.isCheckmate(Black) || game.isCheckmate(White)){
+            if (game.isCheckmate(Black) || game.isCheckmate(White)){
                 state = Checkmate;
-            //}
+            }
+
+            if (game.isStalemate(White) || game.isStalemate(Black)) {
+                state = Stalemate;
+            }
         }
 
         redraw();

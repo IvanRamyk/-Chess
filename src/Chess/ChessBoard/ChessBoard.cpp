@@ -75,15 +75,6 @@ bool ChessBoard::makeMove(class Move move) {
         }
     }
 
-    //pawn transform
-    if (move.getFigure()->getType() == FigureType::Pawn) {
-        if ((move.getFigure()->getColor() == Color::White && move.getEnd().second == 7) ||
-            (move.getFigure()->getColor() == Color::Black && move.getEnd().second == 0)) {
-
-            pawnTransform(move.getEnd(), move.getFigure()->getType());
-        }
-    }
-
     //En passant
     if (move.getFigure()->getType() == FigureType::Pawn && this->_prev.getFigure() &&
             this->_prev.getFigure()->getType() == FigureType::Pawn) {
@@ -114,6 +105,15 @@ bool ChessBoard::makeMove(class Move move) {
     _board[move.getEnd().first][move.getEnd().second] =
             _board[move.getBegin().first][move.getBegin().second];
     _board[move.getBegin().first][move.getBegin().second] = nullptr;
+
+    //pawn transform
+    if (move.getFigure()->getType() == FigureType::Pawn) {
+        if ((move.getFigure()->getColor() == Color::White && move.getEnd().second == 7) ||
+            (move.getFigure()->getColor() == Color::Black && move.getEnd().second == 0)) {
+
+            pawnTransform(move.getEnd(), FigureType::Queen);
+        }
+    }
 
     if (isCheck(move.getFigure()->getColor())) {
         for (int i = 0; i < 8; ++i) {
@@ -334,7 +334,7 @@ void ChessBoard::pawnTransform(std::pair<int, int> pos, FigureType to) {
 
             throw std::invalid_argument("Wrong figure to transform");
         }
-        auto *newFig = new Figure(this->_board[pos.first][pos.second]->getColor(), to);
+        auto* newFig = new Figure(this->_board[pos.first][pos.second]->getColor(), to);
         this->_board[pos.first][pos.second] = newFig;
     }
     catch (std::exception& ex) {
@@ -392,7 +392,7 @@ bool ChessBoard::isCheck(Color color, std::pair<int, int> kingPos) const {
     return false;
 }
 
-bool ChessBoard::isCheckmate(Color color, std::pair<int, int> kingPos) const {
+bool ChessBoard::isCheckmate(Color color, std::pair<int, int> kingPos) {
 
     if (kingPos.first == -1) {
         kingPos = findKing(color);
@@ -402,23 +402,20 @@ bool ChessBoard::isCheckmate(Color color, std::pair<int, int> kingPos) const {
         return false;
     }
 
-    for (int i = 0; i < 8; ++i) {
-        for (int j = 0; j < 8; ++j) {
-            if (_board[i][j] && _board[i][j]->getColor() == color) {
-                for (int x = 0; x < 8; ++x) {
-                    for (int y = 0; y < 8; ++y) {
-                        if (!(i == x && j == y)) {
-                            if (checkMove(Move({i, j}, {x, y}, _board[i][j]))) {
-                                return false;
-                            }
-                        }
-                    }
-                }
-            }
-        }
+    return !possibleMove(color);
+}
+
+bool ChessBoard::isStalemate(enum Color color, std::pair<int, int> kingPos) {
+    if (kingPos.first == -1) {
+        kingPos = findKing(color);
     }
 
-    return true;
+    if (isCheck(color, kingPos)) {
+        return false;
+    }
+
+    return !possibleMove(color);
+
 }
 
 bool ChessBoard::isCapture(Move move) const {
@@ -464,4 +461,28 @@ std::pair<int, int> ChessBoard::findKing(Color color) const {
     }
 
     return {-1 ,-1};
+}
+
+bool ChessBoard::possibleMove(Color color) {
+    for (int i = 0; i < 8; ++i) {
+        for (int j = 0; j < 8; ++j) {
+            if (_board[i][j] && _board[i][j]->getColor() == color) {
+                for (int x = 0; x < 8; ++x) {
+                    for (int y = 0; y < 8; ++y) {
+                        if (!(i == x && j == y)) {
+                            auto currFig = _board[x][y];
+                            if (checkMove(Move({i, j}, {x, y}, _board[i][j])) &&
+                                makeMove(Move({i, j}, {x, y}, _board[i][j]))) {
+                                _board[i][j] = _board[x][y];
+                                _board[x][y] = currFig;
+                                return true;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    return false;
 }
