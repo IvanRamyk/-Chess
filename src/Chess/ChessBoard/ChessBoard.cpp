@@ -61,6 +61,11 @@ ChessBoard::ChessBoard() {
     this->_board[4][7] = new Figure(Color::Black, FigureType::King);
 }
 
+Figure* ChessBoard::getFigure(std::pair<int, int> pos) const {
+    return _board[pos.first][pos.second];
+}
+
+
 bool ChessBoard::makeMove(class Move move) {
 
     matrix copyBoard;
@@ -104,8 +109,6 @@ bool ChessBoard::makeMove(class Move move) {
         std::swap(this->_board[move.getBegin().first - 1][move.getBegin().second],
                   this->_board[move.getBegin().first - 4][move.getBegin().second]);
     }
-
-    //TODO check check :)
 
     _prev = move;
     _board[move.getEnd().first][move.getEnd().second] =
