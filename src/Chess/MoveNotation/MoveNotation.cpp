@@ -52,8 +52,9 @@ std::string MoveNotation::getNotation() const{
     }
     if (_checkmate)
         begining += '#';
-    else if (_check)
+    else if (_check){
         begining += '+';
+    }
     return begining;
 }
 

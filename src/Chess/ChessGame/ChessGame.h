@@ -27,6 +27,8 @@ public:
 
     [[nodiscard]] std::vector<std::string> getField() const;
 
+    bool isCheckmate(Color color) const;
+
 private:
     ChessBoard _board;
     std::vector<MoveNotation> _moves;

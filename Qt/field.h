@@ -11,13 +11,15 @@
 #include "../src/Chess/ChessBoard/ChessBoard.h"
 #include "../src/Stockfish/Stockfish.h"
 
+enum State {
+    Select,
+    Move,
+    Checkmate
+};
 
 class Field
 {
-    enum State {
-        Select,
-        Move
-    };
+
 public:
     Field(Images* images,int lft, int tp,int wdth,int hgh);
     ~Field(){
@@ -148,7 +150,9 @@ public:
                 changeColor();
                 state = Select;
             }
-
+            //if (game.isCheckmate(Black) || game.isCheckmate(White)){
+                state = Checkmate;
+            //}
         }
 
         redraw();
@@ -160,9 +164,12 @@ public:
         return game.getMoves();
     }
     double getEvaluation(){
-        return 0.5;
+        return 0.2;
         Stockfish stockfish(game);
         return stockfish.getEvaluation();
+    }
+    State getState(){
+        return state;
     }
 
 private:
