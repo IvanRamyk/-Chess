@@ -36,7 +36,7 @@ public:
         if (state == State::Move){
             int i = selectedCell.first, j = selectedCell.second;
             painter.drawImage(QRect(i * cell_width, j * cell_height, cell_width, cell_height),images->get("selected cell"));
-            std::cout << "Hey you\n";
+            //std::cout << "Hey you\n";
         }
         for (int i=0;i<8;i++)
                 for (int j=0;j<8;j++){
@@ -110,7 +110,7 @@ public:
         for (int i = 0; i < 8; ++i)
             for (int j = 0; j < 8; ++j)
                 field[i][j].setFigure(Cell::DrawFigure::None);
-        std::cout << "updating\n";
+        //std::cout << "updating\n";
         std::vector<std::string> currentField = game.getField();
         for (auto s : currentField){
             Cell::DrawFigure figure = Cell::DrawFigure::None;

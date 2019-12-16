@@ -19,7 +19,7 @@ std::string Stockfish::getBestMove(int depth) {
     std::ofstream commands(_COMMANDS_PATH);
 
     commands << "position startpos moves " << _pos << "\n";
-    commands << "go depth " << depth << "\n";
+    commands << "go depth " << depth << "\n go\n";
     commands << "quit";
     commands.close();
 
