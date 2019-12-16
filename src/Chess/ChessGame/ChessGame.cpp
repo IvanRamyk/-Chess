@@ -39,6 +39,8 @@ std::string ChessGame::getMoves() const {
         if (i % 2 == 0)
             result += (std::to_string(i / 2 + 1) + ". ");
         result += (_moves[i].getNotation() + " ");
+        if (i % 2 == 1)
+            result += "\n";
     }
     return result;
 }

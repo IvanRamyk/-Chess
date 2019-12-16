@@ -8,13 +8,15 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    width = 700;
-    height = 700;
+    move_color = new QTextBrowser(this);
+    notation = new QTextBrowser(this);
+    width = 1200;
+    height = 0.7 * width;
     this->setFixedSize(width, height);
-    left_board = width / 10;
-    up_board = width / 10;
-    height_board = width * 0.8;
-    width_board = width * 0.8;
+    left_board = height / 10;
+    up_board = height / 10;
+    height_board = height * 0.8;
+    width_board = height * 0.8;
     pictures = new Images;
     this->setWindowTitle("Chess");
     pictures->load();

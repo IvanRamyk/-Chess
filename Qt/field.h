@@ -152,6 +152,12 @@ public:
 
         redraw();
     }
+    Color getColor(){
+        return moveSide;
+    }
+    std::string getNotation(){
+        return game.getMoves();
+    }
 
 private:
     Images *images;
