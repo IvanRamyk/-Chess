@@ -25,10 +25,6 @@ QT_END_NAMESPACE
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
-enum State {
-    Select,
-    Move
-};
 
 public:
     MainWindow(QWidget *parent = nullptr);
@@ -46,10 +42,16 @@ protected:
         move_color->setStyleSheet("background-color: transparent;\n"
                                   "font-size:18pt;\n"
                                   "text-align: center;");
+        QString text = "";
         if (field->getColor() == Color::White)
-            move_color->setText("White move");
+            text = "White ";
         else
-            move_color->setText("Black move");
+            text = "Black ";
+        if (field->getState() == State::Checkmate)
+            text += "win";
+        else
+            text += "move";
+        move_color->setText(text);
         move_color->show();
         notation->clear();
         notation->setGeometry(left_board + width_board + 0.075 * height, up_board + height * 0.075, height * 0.3, height * 0.7);
@@ -88,7 +90,6 @@ private:
     Ui::MainWindow *ui;
     Images *pictures;
     Field *field;
-    State state;
     int height, width, left_board, up_board, height_board, width_board;
     QTextBrowser *move_color;
     QTextBrowser *notation;

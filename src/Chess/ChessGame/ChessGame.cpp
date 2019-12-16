@@ -16,7 +16,6 @@ bool ChessGame::makeMove(std::pair <int, int> from, std::pair<int, int> to) {
         return false;
     }
     if (!_board.checkMove(move)) {
-        std::cout << "check move returns false\n";
         return false;
     }
     bool check = _board.isCheck(move.getFigure()->getColor() == White ? Black : White);
@@ -59,3 +58,6 @@ std::vector<std::string> ChessGame::getField() const {
     return _board.getField();
 }
 
+bool ChessGame::isCheckmate(Color color) const {
+    return _board.isCheckmate(color);
+}

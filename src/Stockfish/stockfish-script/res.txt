@@ -1,0 +1,456 @@
+Stockfish 10 64 by T. Romstad, M. Costalba, J. Kiiski, G. Linscott
+Stockfish 10 64 by T. Romstad, M. Costalba, J. Kiiski, G. Linscott
+     Term    |    White    |    Black    |    Total   
+             |   MG    EG  |   MG    EG  |   MG    EG 
+ ------------+-------------+-------------+------------
+    Material |  ----  ---- |  ----  ---- |  0.00  0.00
+   Imbalance |  ----  ---- |  ----  ---- |  0.00  0.00
+  Initiative |  ----  ---- |  ----  ---- |  0.00  0.00
+       Pawns |  0.35 -0.08 |  0.35 -0.08 |  0.00  0.00
+     Knights |  0.01 -0.17 |  0.01 -0.17 |  0.00  0.00
+     Bishops | -0.05 -0.41 | -0.05 -0.41 |  0.00  0.00
+       Rooks | -0.37 -0.02 | -0.37 -0.02 |  0.00  0.00
+      Queens |  0.00  0.00 |  0.00  0.00 |  0.00  0.00
+    Mobility | -0.94 -1.10 | -0.94 -1.10 |  0.00  0.00
+ King safety |  0.72 -0.08 |  0.72 -0.08 |  0.00  0.00
+     Threats |  0.00  0.00 |  0.00  0.00 |  0.00  0.00
+      Passed |  0.00  0.00 |  0.00  0.00 |  0.00  0.00
+       Space |  0.62  0.00 |  0.62  0.00 |  0.00  0.00
+ ------------+-------------+-------------+------------
+       Total |  ----  ---- |  ----  ---- |  0.00  0.00
+
+Total evaluation: 0.10 (white side)
+
+Stockfish 10 64 by T. Romstad, M. Costalba, J. Kiiski, G. Linscott
+Stockfish 10 64 by T. Romstad, M. Costalba, J. Kiiski, G. Linscott
+Stockfish 10 64 by T. Romstad, M. Costalba, J. Kiiski, G. Linscott
+     Term    |    White    |    Black    |    Total   
+             |   MG    EG  |   MG    EG  |   MG    EG 
+ ------------+-------------+-------------+------------
+    Material |  ----  ---- |  ----  ---- |  0.00  0.00
+   Imbalance |  ----  ---- |  ----  ---- |  0.00  0.00
+  Initiative |  ----  ---- |  ----  ---- |  0.00  0.00
+       Pawns |  0.35 -0.08 |  0.35 -0.08 |  0.00  0.00
+     Knights |  0.01 -0.17 |  0.01 -0.17 |  0.00  0.00
+     Bishops | -0.05 -0.41 | -0.05 -0.41 |  0.00  0.00
+       Rooks | -0.37 -0.02 | -0.37 -0.02 |  0.00  0.00
+      Queens |  0.00  0.00 |  0.00  0.00 |  0.00  0.00
+    Mobility | -0.94 -1.10 | -0.94 -1.10 |  0.00  0.00
+ King safety |  0.72 -0.08 |  0.72 -0.08 |  0.00  0.00
+     Threats |  0.00  0.00 |  0.00  0.00 |  0.00  0.00
+      Passed |  0.00  0.00 |  0.00  0.00 |  0.00  0.00
+       Space |  0.62  0.00 |  0.62  0.00 |  0.00  0.00
+ ------------+-------------+-------------+------------
+       Total |  ----  ---- |  ----  ---- |  0.00  0.00
+
+Total evaluation: 0.10 (white side)
+
+Stockfish 10 64 by T. Romstad, M. Costalba, J. Kiiski, G. Linscott
+Stockfish 10 64 by T. Romstad, M. Costalba, J. Kiiski, G. Linscott
+Stockfish 10 64 by T. Romstad, M. Costalba, J. Kiiski, G. Linscott
+     Term    |    White    |    Black    |    Total   
+             |   MG    EG  |   MG    EG  |   MG    EG 
+ ------------+-------------+-------------+------------
+    Material |  ----  ---- |  ----  ---- |  0.00  0.00
+   Imbalance |  ----  ---- |  ----  ---- |  0.00  0.00
+  Initiative |  ----  ---- |  ----  ---- |  0.00  0.00
+       Pawns |  0.35 -0.08 |  0.35 -0.08 |  0.00  0.00
+     Knights |  0.01 -0.17 |  0.01 -0.17 |  0.00  0.00
+     Bishops | -0.05 -0.41 | -0.05 -0.41 |  0.00  0.00
+       Rooks | -0.37 -0.02 | -0.37 -0.02 |  0.00  0.00
+      Queens |  0.00  0.00 |  0.00  0.00 |  0.00  0.00
+    Mobility | -0.94 -1.10 | -0.94 -1.10 |  0.00  0.00
+ King safety |  0.72 -0.08 |  0.72 -0.08 |  0.00  0.00
+     Threats |  0.00  0.00 |  0.00  0.00 |  0.00  0.00
+      Passed |  0.00  0.00 |  0.00  0.00 |  0.00  0.00
+       Space |  0.62  0.00 |  0.62  0.00 |  0.00  0.00
+ ------------+-------------+-------------+------------
+       Total |  ----  ---- |  ----  ---- |  0.00  0.00
+
+Total evaluation: 0.10 (white side)
+
+Stockfish 10 64 by T. Romstad, M. Costalba, J. Kiiski, G. Linscott
+Stockfish 10 64 by T. Romstad, M. Costalba, J. Kiiski, G. Linscott
+Stockfish 10 64 by T. Romstad, M. Costalba, J. Kiiski, G. Linscott
+     Term    |    White    |    Black    |    Total   
+             |   MG    EG  |   MG    EG  |   MG    EG 
+ ------------+-------------+-------------+------------
+    Material |  ----  ---- |  ----  ---- |  0.00  0.00
+   Imbalance |  ----  ---- |  ----  ---- |  0.00  0.00
+  Initiative |  ----  ---- |  ----  ---- |  0.00  0.00
+       Pawns |  0.35 -0.08 |  0.35 -0.08 |  0.00  0.00
+     Knights |  0.01 -0.17 |  0.01 -0.17 |  0.00  0.00
+     Bishops | -0.05 -0.41 | -0.05 -0.41 |  0.00  0.00
+       Rooks | -0.37 -0.02 | -0.37 -0.02 |  0.00  0.00
+      Queens |  0.00  0.00 |  0.00  0.00 |  0.00  0.00
+    Mobility | -0.94 -1.10 | -0.94 -1.10 |  0.00  0.00
+ King safety |  0.72 -0.08 |  0.72 -0.08 |  0.00  0.00
+     Threats |  0.00  0.00 |  0.00  0.00 |  0.00  0.00
+      Passed |  0.00  0.00 |  0.00  0.00 |  0.00  0.00
+       Space |  0.62  0.00 |  0.62  0.00 |  0.00  0.00
+ ------------+-------------+-------------+------------
+       Total |  ----  ---- |  ----  ---- |  0.00  0.00
+
+Total evaluation: 0.10 (white side)
+
+Stockfish 10 64 by T. Romstad, M. Costalba, J. Kiiski, G. Linscott
+Stockfish 10 64 by T. Romstad, M. Costalba, J. Kiiski, G. Linscott
+Stockfish 10 64 by T. Romstad, M. Costalba, J. Kiiski, G. Linscott
+     Term    |    White    |    Black    |    Total   
+             |   MG    EG  |   MG    EG  |   MG    EG 
+ ------------+-------------+-------------+------------
+    Material |  ----  ---- |  ----  ---- |  0.00  0.00
+   Imbalance |  ----  ---- |  ----  ---- |  0.00  0.00
+  Initiative |  ----  ---- |  ----  ---- |  0.00  0.00
+       Pawns |  0.35 -0.08 |  0.35 -0.08 |  0.00  0.00
+     Knights |  0.01 -0.17 |  0.01 -0.17 |  0.00  0.00
+     Bishops | -0.05 -0.41 | -0.05 -0.41 |  0.00  0.00
+       Rooks | -0.37 -0.02 | -0.37 -0.02 |  0.00  0.00
+      Queens |  0.00  0.00 |  0.00  0.00 |  0.00  0.00
+    Mobility | -0.94 -1.10 | -0.94 -1.10 |  0.00  0.00
+ King safety |  0.72 -0.08 |  0.72 -0.08 |  0.00  0.00
+     Threats |  0.00  0.00 |  0.00  0.00 |  0.00  0.00
+      Passed |  0.00  0.00 |  0.00  0.00 |  0.00  0.00
+       Space |  0.62  0.00 |  0.62  0.00 |  0.00  0.00
+ ------------+-------------+-------------+------------
+       Total |  ----  ---- |  ----  ---- |  0.00  0.00
+
+Total evaluation: 0.10 (white side)
+
+Stockfish 10 64 by T. Romstad, M. Costalba, J. Kiiski, G. Linscott
+Stockfish 10 64 by T. Romstad, M. Costalba, J. Kiiski, G. Linscott
+Stockfish 10 64 by T. Romstad, M. Costalba, J. Kiiski, G. Linscott
+     Term    |    White    |    Black    |    Total   
+             |   MG    EG  |   MG    EG  |   MG    EG 
+ ------------+-------------+-------------+------------
+    Material |  ----  ---- |  ----  ---- |  0.00  0.00
+   Imbalance |  ----  ---- |  ----  ---- |  0.00  0.00
+  Initiative |  ----  ---- |  ----  ---- |  0.00  0.00
+       Pawns |  0.35 -0.08 |  0.35 -0.08 |  0.00  0.00
+     Knights |  0.01 -0.17 |  0.01 -0.17 |  0.00  0.00
+     Bishops | -0.05 -0.41 | -0.05 -0.41 |  0.00  0.00
+       Rooks | -0.37 -0.02 | -0.37 -0.02 |  0.00  0.00
+      Queens |  0.00  0.00 |  0.00  0.00 |  0.00  0.00
+    Mobility | -0.94 -1.10 | -0.94 -1.10 |  0.00  0.00
+ King safety |  0.72 -0.08 |  0.72 -0.08 |  0.00  0.00
+     Threats |  0.00  0.00 |  0.00  0.00 |  0.00  0.00
+      Passed |  0.00  0.00 |  0.00  0.00 |  0.00  0.00
+       Space |  0.62  0.00 |  0.62  0.00 |  0.00  0.00
+ ------------+-------------+-------------+------------
+       Total |  ----  ---- |  ----  ---- |  0.00  0.00
+
+Total evaluation: 0.10 (white side)
+
+Stockfish 10 64 by T. Romstad, M. Costalba, J. Kiiski, G. Linscott
+Stockfish 10 64 by T. Romstad, M. Costalba, J. Kiiski, G. Linscott
+Stockfish 10 64 by T. Romstad, M. Costalba, J. Kiiski, G. Linscott
+     Term    |    White    |    Black    |    Total   
+             |   MG    EG  |   MG    EG  |   MG    EG 
+ ------------+-------------+-------------+------------
+    Material |  ----  ---- |  ----  ---- |  0.00  0.00
+   Imbalance |  ----  ---- |  ----  ---- |  0.00  0.00
+  Initiative |  ----  ---- |  ----  ---- |  0.00  0.00
+       Pawns |  0.35 -0.08 |  0.35 -0.08 |  0.00  0.00
+     Knights |  0.01 -0.17 |  0.01 -0.17 |  0.00  0.00
+     Bishops | -0.05 -0.41 | -0.05 -0.41 |  0.00  0.00
+       Rooks | -0.37 -0.02 | -0.37 -0.02 |  0.00  0.00
+      Queens |  0.00  0.00 |  0.00  0.00 |  0.00  0.00
+    Mobility | -0.94 -1.10 | -0.94 -1.10 |  0.00  0.00
+ King safety |  0.72 -0.08 |  0.72 -0.08 |  0.00  0.00
+     Threats |  0.00  0.00 |  0.00  0.00 |  0.00  0.00
+      Passed |  0.00  0.00 |  0.00  0.00 |  0.00  0.00
+       Space |  0.62  0.00 |  0.62  0.00 |  0.00  0.00
+ ------------+-------------+-------------+------------
+       Total |  ----  ---- |  ----  ---- |  0.00  0.00
+
+Total evaluation: 0.10 (white side)
+
+Stockfish 10 64 by T. Romstad, M. Costalba, J. Kiiski, G. Linscott
+Stockfish 10 64 by T. Romstad, M. Costalba, J. Kiiski, G. Linscott
+Stockfish 10 64 by T. Romstad, M. Costalba, J. Kiiski, G. Linscott
+     Term    |    White    |    Black    |    Total   
+             |   MG    EG  |   MG    EG  |   MG    EG 
+ ------------+-------------+-------------+------------
+    Material |  ----  ---- |  ----  ---- |  0.00  0.00
+   Imbalance |  ----  ---- |  ----  ---- |  0.00  0.00
+  Initiative |  ----  ---- |  ----  ---- |  0.00  0.00
+       Pawns |  0.35 -0.08 |  0.35 -0.08 |  0.00  0.00
+     Knights |  0.01 -0.17 |  0.01 -0.17 |  0.00  0.00
+     Bishops | -0.05 -0.41 | -0.05 -0.41 |  0.00  0.00
+       Rooks | -0.37 -0.02 | -0.37 -0.02 |  0.00  0.00
+      Queens |  0.00  0.00 |  0.00  0.00 |  0.00  0.00
+    Mobility | -0.94 -1.10 | -0.94 -1.10 |  0.00  0.00
+ King safety |  0.72 -0.08 |  0.72 -0.08 |  0.00  0.00
+     Threats |  0.00  0.00 |  0.00  0.00 |  0.00  0.00
+      Passed |  0.00  0.00 |  0.00  0.00 |  0.00  0.00
+       Space |  0.62  0.00 |  0.62  0.00 |  0.00  0.00
+ ------------+-------------+-------------+------------
+       Total |  ----  ---- |  ----  ---- |  0.00  0.00
+
+Total evaluation: 0.10 (white side)
+
+Stockfish 10 64 by T. Romstad, M. Costalba, J. Kiiski, G. Linscott
+Stockfish 10 64 by T. Romstad, M. Costalba, J. Kiiski, G. Linscott
+Stockfish 10 64 by T. Romstad, M. Costalba, J. Kiiski, G. Linscott
+     Term    |    White    |    Black    |    Total   
+             |   MG    EG  |   MG    EG  |   MG    EG 
+ ------------+-------------+-------------+------------
+    Material |  ----  ---- |  ----  ---- |  0.00  0.00
+   Imbalance |  ----  ---- |  ----  ---- |  0.00  0.00
+  Initiative |  ----  ---- |  ----  ---- |  0.00  0.00
+       Pawns |  0.35 -0.08 |  0.35 -0.08 |  0.00  0.00
+     Knights |  0.01 -0.17 |  0.01 -0.17 |  0.00  0.00
+     Bishops | -0.05 -0.41 | -0.05 -0.41 |  0.00  0.00
+       Rooks | -0.37 -0.02 | -0.37 -0.02 |  0.00  0.00
+      Queens |  0.00  0.00 |  0.00  0.00 |  0.00  0.00
+    Mobility | -0.94 -1.10 | -0.94 -1.10 |  0.00  0.00
+ King safety |  0.72 -0.08 |  0.72 -0.08 |  0.00  0.00
+     Threats |  0.00  0.00 |  0.00  0.00 |  0.00  0.00
+      Passed |  0.00  0.00 |  0.00  0.00 |  0.00  0.00
+       Space |  0.62  0.00 |  0.62  0.00 |  0.00  0.00
+ ------------+-------------+-------------+------------
+       Total |  ----  ---- |  ----  ---- |  0.00  0.00
+
+Total evaluation: 0.10 (white side)
+
+Stockfish 10 64 by T. Romstad, M. Costalba, J. Kiiski, G. Linscott
+Stockfish 10 64 by T. Romstad, M. Costalba, J. Kiiski, G. Linscott
+Stockfish 10 64 by T. Romstad, M. Costalba, J. Kiiski, G. Linscott
+     Term    |    White    |    Black    |    Total   
+             |   MG    EG  |   MG    EG  |   MG    EG 
+ ------------+-------------+-------------+------------
+    Material |  ----  ---- |  ----  ---- |  0.00  0.00
+   Imbalance |  ----  ---- |  ----  ---- |  0.00  0.00
+  Initiative |  ----  ---- |  ----  ---- |  0.00  0.00
+       Pawns |  0.35 -0.08 |  0.35 -0.08 |  0.00  0.00
+     Knights |  0.01 -0.17 |  0.01 -0.17 |  0.00  0.00
+     Bishops | -0.05 -0.41 | -0.05 -0.41 |  0.00  0.00
+       Rooks | -0.37 -0.02 | -0.37 -0.02 |  0.00  0.00
+      Queens |  0.00  0.00 |  0.00  0.00 |  0.00  0.00
+    Mobility | -0.94 -1.10 | -0.94 -1.10 |  0.00  0.00
+ King safety |  0.72 -0.08 |  0.72 -0.08 |  0.00  0.00
+     Threats |  0.00  0.00 |  0.00  0.00 |  0.00  0.00
+      Passed |  0.00  0.00 |  0.00  0.00 |  0.00  0.00
+       Space |  0.62  0.00 |  0.62  0.00 |  0.00  0.00
+ ------------+-------------+-------------+------------
+       Total |  ----  ---- |  ----  ---- |  0.00  0.00
+
+Total evaluation: 0.10 (white side)
+
+Stockfish 10 64 by T. Romstad, M. Costalba, J. Kiiski, G. Linscott
+Stockfish 10 64 by T. Romstad, M. Costalba, J. Kiiski, G. Linscott
+Stockfish 10 64 by T. Romstad, M. Costalba, J. Kiiski, G. Linscott
+     Term    |    White    |    Black    |    Total   
+             |   MG    EG  |   MG    EG  |   MG    EG 
+ ------------+-------------+-------------+------------
+    Material |  ----  ---- |  ----  ---- |  0.00  0.00
+   Imbalance |  ----  ---- |  ----  ---- |  0.00  0.00
+  Initiative |  ----  ---- |  ----  ---- |  0.00  0.00
+       Pawns |  0.35 -0.08 |  0.35 -0.08 |  0.00  0.00
+     Knights |  0.01 -0.17 |  0.01 -0.17 |  0.00  0.00
+     Bishops | -0.05 -0.41 | -0.05 -0.41 |  0.00  0.00
+       Rooks | -0.37 -0.02 | -0.37 -0.02 |  0.00  0.00
+      Queens |  0.00  0.00 |  0.00  0.00 |  0.00  0.00
+    Mobility | -0.94 -1.10 | -0.94 -1.10 |  0.00  0.00
+ King safety |  0.72 -0.08 |  0.72 -0.08 |  0.00  0.00
+     Threats |  0.00  0.00 |  0.00  0.00 |  0.00  0.00
+      Passed |  0.00  0.00 |  0.00  0.00 |  0.00  0.00
+       Space |  0.62  0.00 |  0.62  0.00 |  0.00  0.00
+ ------------+-------------+-------------+------------
+       Total |  ----  ---- |  ----  ---- |  0.00  0.00
+
+Total evaluation: 0.10 (white side)
+
+Stockfish 10 64 by T. Romstad, M. Costalba, J. Kiiski, G. Linscott
+Stockfish 10 64 by T. Romstad, M. Costalba, J. Kiiski, G. Linscott
+Stockfish 10 64 by T. Romstad, M. Costalba, J. Kiiski, G. Linscott
+     Term    |    White    |    Black    |    Total   
+             |   MG    EG  |   MG    EG  |   MG    EG 
+ ------------+-------------+-------------+------------
+    Material |  ----  ---- |  ----  ---- |  0.00  0.00
+   Imbalance |  ----  ---- |  ----  ---- |  0.00  0.00
+  Initiative |  ----  ---- |  ----  ---- |  0.00  0.00
+       Pawns |  0.35 -0.08 |  0.35 -0.08 |  0.00  0.00
+     Knights |  0.01 -0.17 |  0.01 -0.17 |  0.00  0.00
+     Bishops | -0.05 -0.41 | -0.05 -0.41 |  0.00  0.00
+       Rooks | -0.37 -0.02 | -0.37 -0.02 |  0.00  0.00
+      Queens |  0.00  0.00 |  0.00  0.00 |  0.00  0.00
+    Mobility | -0.94 -1.10 | -0.94 -1.10 |  0.00  0.00
+ King safety |  0.72 -0.08 |  0.72 -0.08 |  0.00  0.00
+     Threats |  0.00  0.00 |  0.00  0.00 |  0.00  0.00
+      Passed |  0.00  0.00 |  0.00  0.00 |  0.00  0.00
+       Space |  0.62  0.00 |  0.62  0.00 |  0.00  0.00
+ ------------+-------------+-------------+------------
+       Total |  ----  ---- |  ----  ---- |  0.00  0.00
+
+Total evaluation: 0.10 (white side)
+
+Stockfish 10 64 by T. Romstad, M. Costalba, J. Kiiski, G. Linscott
+Stockfish 10 64 by T. Romstad, M. Costalba, J. Kiiski, G. Linscott
+Stockfish 10 64 by T. Romstad, M. Costalba, J. Kiiski, G. Linscott
+     Term    |    White    |    Black    |    Total   
+             |   MG    EG  |   MG    EG  |   MG    EG 
+ ------------+-------------+-------------+------------
+    Material |  ----  ---- |  ----  ---- |  0.00  0.00
+   Imbalance |  ----  ---- |  ----  ---- |  0.00  0.00
+  Initiative |  ----  ---- |  ----  ---- |  0.00  0.00
+       Pawns |  0.35 -0.08 |  0.35 -0.08 |  0.00  0.00
+     Knights |  0.01 -0.17 |  0.01 -0.17 |  0.00  0.00
+     Bishops | -0.05 -0.41 | -0.05 -0.41 |  0.00  0.00
+       Rooks | -0.37 -0.02 | -0.37 -0.02 |  0.00  0.00
+      Queens |  0.00  0.00 |  0.00  0.00 |  0.00  0.00
+    Mobility | -0.94 -1.10 | -0.94 -1.10 |  0.00  0.00
+ King safety |  0.72 -0.08 |  0.72 -0.08 |  0.00  0.00
+     Threats |  0.00  0.00 |  0.00  0.00 |  0.00  0.00
+      Passed |  0.00  0.00 |  0.00  0.00 |  0.00  0.00
+       Space |  0.62  0.00 |  0.62  0.00 |  0.00  0.00
+ ------------+-------------+-------------+------------
+       Total |  ----  ---- |  ----  ---- |  0.00  0.00
+
+Total evaluation: 0.10 (white side)
+
+Stockfish 10 64 by T. Romstad, M. Costalba, J. Kiiski, G. Linscott
+Stockfish 10 64 by T. Romstad, M. Costalba, J. Kiiski, G. Linscott
+Stockfish 10 64 by T. Romstad, M. Costalba, J. Kiiski, G. Linscott
+     Term    |    White    |    Black    |    Total   
+             |   MG    EG  |   MG    EG  |   MG    EG 
+ ------------+-------------+-------------+------------
+    Material |  ----  ---- |  ----  ---- |  0.00  0.00
+   Imbalance |  ----  ---- |  ----  ---- |  0.00  0.00
+  Initiative |  ----  ---- |  ----  ---- |  0.00  0.00
+       Pawns |  0.35 -0.08 |  0.35 -0.08 |  0.00  0.00
+     Knights |  0.01 -0.17 |  0.01 -0.17 |  0.00  0.00
+     Bishops | -0.05 -0.41 | -0.05 -0.41 |  0.00  0.00
+       Rooks | -0.37 -0.02 | -0.37 -0.02 |  0.00  0.00
+      Queens |  0.00  0.00 |  0.00  0.00 |  0.00  0.00
+    Mobility | -0.94 -1.10 | -0.94 -1.10 |  0.00  0.00
+ King safety |  0.72 -0.08 |  0.72 -0.08 |  0.00  0.00
+     Threats |  0.00  0.00 |  0.00  0.00 |  0.00  0.00
+      Passed |  0.00  0.00 |  0.00  0.00 |  0.00  0.00
+       Space |  0.62  0.00 |  0.62  0.00 |  0.00  0.00
+ ------------+-------------+-------------+------------
+       Total |  ----  ---- |  ----  ---- |  0.00  0.00
+
+Total evaluation: 0.10 (white side)
+
+Stockfish 10 64 by T. Romstad, M. Costalba, J. Kiiski, G. Linscott
+Stockfish 10 64 by T. Romstad, M. Costalba, J. Kiiski, G. Linscott
+Stockfish 10 64 by T. Romstad, M. Costalba, J. Kiiski, G. Linscott
+     Term    |    White    |    Black    |    Total   
+             |   MG    EG  |   MG    EG  |   MG    EG 
+ ------------+-------------+-------------+------------
+    Material |  ----  ---- |  ----  ---- |  0.00  0.00
+   Imbalance |  ----  ---- |  ----  ---- |  0.00  0.00
+  Initiative |  ----  ---- |  ----  ---- |  0.00  0.00
+       Pawns |  0.35 -0.08 |  0.35 -0.08 |  0.00  0.00
+     Knights |  0.01 -0.17 |  0.01 -0.17 |  0.00  0.00
+     Bishops | -0.05 -0.41 | -0.05 -0.41 |  0.00  0.00
+       Rooks | -0.37 -0.02 | -0.37 -0.02 |  0.00  0.00
+      Queens |  0.00  0.00 |  0.00  0.00 |  0.00  0.00
+    Mobility | -0.94 -1.10 | -0.94 -1.10 |  0.00  0.00
+ King safety |  0.72 -0.08 |  0.72 -0.08 |  0.00  0.00
+     Threats |  0.00  0.00 |  0.00  0.00 |  0.00  0.00
+      Passed |  0.00  0.00 |  0.00  0.00 |  0.00  0.00
+       Space |  0.62  0.00 |  0.62  0.00 |  0.00  0.00
+ ------------+-------------+-------------+------------
+       Total |  ----  ---- |  ----  ---- |  0.00  0.00
+
+Total evaluation: 0.10 (white side)
+
+Stockfish 10 64 by T. Romstad, M. Costalba, J. Kiiski, G. Linscott
+Stockfish 10 64 by T. Romstad, M. Costalba, J. Kiiski, G. Linscott
+Stockfish 10 64 by T. Romstad, M. Costalba, J. Kiiski, G. Linscott
+     Term    |    White    |    Black    |    Total   
+             |   MG    EG  |   MG    EG  |   MG    EG 
+ ------------+-------------+-------------+------------
+    Material |  ----  ---- |  ----  ---- |  0.00  0.00
+   Imbalance |  ----  ---- |  ----  ---- |  0.00  0.00
+  Initiative |  ----  ---- |  ----  ---- |  0.00  0.00
+       Pawns |  0.35 -0.08 |  0.35 -0.08 |  0.00  0.00
+     Knights |  0.01 -0.17 |  0.01 -0.17 |  0.00  0.00
+     Bishops | -0.05 -0.41 | -0.05 -0.41 |  0.00  0.00
+       Rooks | -0.37 -0.02 | -0.37 -0.02 |  0.00  0.00
+      Queens |  0.00  0.00 |  0.00  0.00 |  0.00  0.00
+    Mobility | -0.94 -1.10 | -0.94 -1.10 |  0.00  0.00
+ King safety |  0.72 -0.08 |  0.72 -0.08 |  0.00  0.00
+     Threats |  0.00  0.00 |  0.00  0.00 |  0.00  0.00
+      Passed |  0.00  0.00 |  0.00  0.00 |  0.00  0.00
+       Space |  0.62  0.00 |  0.62  0.00 |  0.00  0.00
+ ------------+-------------+-------------+------------
+       Total |  ----  ---- |  ----  ---- |  0.00  0.00
+
+Total evaluation: 0.10 (white side)
+
+Stockfish 10 64 by T. Romstad, M. Costalba, J. Kiiski, G. Linscott
+Stockfish 10 64 by T. Romstad, M. Costalba, J. Kiiski, G. Linscott
+Stockfish 10 64 by T. Romstad, M. Costalba, J. Kiiski, G. Linscott
+     Term    |    White    |    Black    |    Total   
+             |   MG    EG  |   MG    EG  |   MG    EG 
+ ------------+-------------+-------------+------------
+    Material |  ----  ---- |  ----  ---- |  0.00  0.00
+   Imbalance |  ----  ---- |  ----  ---- |  0.00  0.00
+  Initiative |  ----  ---- |  ----  ---- |  0.00  0.00
+       Pawns |  0.35 -0.08 |  0.35 -0.08 |  0.00  0.00
+     Knights |  0.01 -0.17 |  0.01 -0.17 |  0.00  0.00
+     Bishops | -0.05 -0.41 | -0.05 -0.41 |  0.00  0.00
+       Rooks | -0.37 -0.02 | -0.37 -0.02 |  0.00  0.00
+      Queens |  0.00  0.00 |  0.00  0.00 |  0.00  0.00
+    Mobility | -0.94 -1.10 | -0.94 -1.10 |  0.00  0.00
+ King safety |  0.72 -0.08 |  0.72 -0.08 |  0.00  0.00
+     Threats |  0.00  0.00 |  0.00  0.00 |  0.00  0.00
+      Passed |  0.00  0.00 |  0.00  0.00 |  0.00  0.00
+       Space |  0.62  0.00 |  0.62  0.00 |  0.00  0.00
+ ------------+-------------+-------------+------------
+       Total |  ----  ---- |  ----  ---- |  0.00  0.00
+
+Total evaluation: 0.10 (white side)
+
+Stockfish 10 64 by T. Romstad, M. Costalba, J. Kiiski, G. Linscott
+Stockfish 10 64 by T. Romstad, M. Costalba, J. Kiiski, G. Linscott
+Stockfish 10 64 by T. Romstad, M. Costalba, J. Kiiski, G. Linscott
+     Term    |    White    |    Black    |    Total   
+             |   MG    EG  |   MG    EG  |   MG    EG 
+ ------------+-------------+-------------+------------
+    Material |  ----  ---- |  ----  ---- |  0.00  0.00
+   Imbalance |  ----  ---- |  ----  ---- |  0.00  0.00
+  Initiative |  ----  ---- |  ----  ---- |  0.00  0.00
+       Pawns |  0.35 -0.08 |  0.35 -0.08 |  0.00  0.00
+     Knights |  0.01 -0.17 |  0.01 -0.17 |  0.00  0.00
+     Bishops | -0.05 -0.41 | -0.05 -0.41 |  0.00  0.00
+       Rooks | -0.37 -0.02 | -0.37 -0.02 |  0.00  0.00
+      Queens |  0.00  0.00 |  0.00  0.00 |  0.00  0.00
+    Mobility | -0.94 -1.10 | -0.94 -1.10 |  0.00  0.00
+ King safety |  0.72 -0.08 |  0.72 -0.08 |  0.00  0.00
+     Threats |  0.00  0.00 |  0.00  0.00 |  0.00  0.00
+      Passed |  0.00  0.00 |  0.00  0.00 |  0.00  0.00
+       Space |  0.62  0.00 |  0.62  0.00 |  0.00  0.00
+ ------------+-------------+-------------+------------
+       Total |  ----  ---- |  ----  ---- |  0.00  0.00
+
+Total evaluation: 0.10 (white side)
+
+Stockfish 10 64 by T. Romstad, M. Costalba, J. Kiiski, G. Linscott
+Stockfish 10 64 by T. Romstad, M. Costalba, J. Kiiski, G. Linscott
+Stockfish 10 64 by T. Romstad, M. Costalba, J. Kiiski, G. Linscott
+     Term    |    White    |    Black    |    Total   
+             |   MG    EG  |   MG    EG  |   MG    EG 
+ ------------+-------------+-------------+------------
+    Material |  ----  ---- |  ----  ---- |  0.00  0.00
+   Imbalance |  ----  ---- |  ----  ---- |  0.00  0.00
+  Initiative |  ----  ---- |  ----  ---- |  0.00  0.00
+       Pawns |  0.35 -0.08 |  0.35 -0.08 |  0.00  0.00
+     Knights |  0.01 -0.17 |  0.01 -0.17 |  0.00  0.00
+     Bishops | -0.05 -0.41 | -0.05 -0.41 |  0.00  0.00
+       Rooks | -0.37 -0.02 | -0.37 -0.02 |  0.00  0.00
+      Queens |  0.00  0.00 |  0.00  0.00 |  0.00  0.00
+    Mobility | -0.94 -1.10 | -0.94 -1.10 |  0.00  0.00
+ King safety |  0.72 -0.08 |  0.72 -0.08 |  0.00  0.00
+     Threats |  0.00  0.00 |  0.00  0.00 |  0.00  0.00
+      Passed |  0.00  0.00 |  0.00  0.00 |  0.00  0.00
+       Space |  0.62  0.00 |  0.62  0.00 |  0.00  0.00
+ ------------+-------------+-------------+------------
+       Total |  ----  ---- |  ----  ---- |  0.00  0.00
+
+Total evaluation: 0.10 (white side)
+
+Stockfish 10 64 by T. Romstad, M. Costalba, J. Kiiski, G. Linscott
