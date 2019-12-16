@@ -46,7 +46,6 @@ double Stockfish::getEval(int depth) {
 
     commands << "position startpos moves " << _pos << "\n";
     commands << "eval depth " << depth << "\n";
-    commands << "quit\n";
     commands.close();
 
     system("cd .. && cd src && cd Stockfish && cd stockfish-script && ./script.sh");

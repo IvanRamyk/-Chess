@@ -1,3 +1,3 @@
-position startpos moves 
-eval depth 10
+position startpos moves e2e4
+go depth 15
 quit

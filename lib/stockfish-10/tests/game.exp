@@ -1,15 +1,10 @@
-#!/usr/bin/expect -f
-
- set timeout 100
-
- puts "ls"
-
- spawn ./stockfish
+ set timeout 10
+ spawn  ./stockfish
 
  send "uci\n"
  expect "uciok"
 
- send "setoption name Threads value\n"
+ send "setoption name Threads value 1\n"
 
  send "ucinewgame\n"
  send "position startpos\n"
@@ -29,7 +24,4 @@
 
  # return error code of the spawned program, useful for valgrind
  lassign [wait] pid spawnid os_error_flag value
- exit \$value
-
-
-
+ exit $value

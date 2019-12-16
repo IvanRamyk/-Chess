@@ -402,12 +402,18 @@ bool ChessBoard::isCheckmate(Color color, std::pair<int, int> kingPos) const {
         return false;
     }
 
-    for (int x = kingPos.first - 1; x <= kingPos.first + 1; ++x) {
-        for (int y = kingPos.second - 1; y <= kingPos.second + 1; ++y) {
-            if (!(x == kingPos.first && y == kingPos.second) &&
-                checkMove(Move(kingPos, {x, y}, _board[x][y]))) {
-
-                return false;
+    for (int i = 0; i < 8; ++i) {
+        for (int j = 0; j < 8; ++j) {
+            if (_board[i][j] && _board[i][j]->getColor() == color) {
+                for (int x = 0; x < 8; ++x) {
+                    for (int y = 0; y < 8; ++y) {
+                        if (!(i == x && j == y)) {
+                            if (checkMove(Move({i, j}, {x, y}, _board[i][j]))) {
+                                return false;
+                            }
+                        }
+                    }
+                }
             }
         }
     }
