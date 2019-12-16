@@ -75,15 +75,6 @@ bool ChessBoard::makeMove(class Move move) {
         }
     }
 
-    //pawn transform
-    if (move.getFigure()->getType() == FigureType::Pawn) {
-        if ((move.getFigure()->getColor() == Color::White && move.getEnd().second == 7) ||
-            (move.getFigure()->getColor() == Color::Black && move.getEnd().second == 0)) {
-
-            pawnTransform(move.getEnd(), move.getFigure()->getType());
-        }
-    }
-
     //En passant
     if (move.getFigure()->getType() == FigureType::Pawn && this->_prev.getFigure() &&
             this->_prev.getFigure()->getType() == FigureType::Pawn) {
@@ -114,6 +105,15 @@ bool ChessBoard::makeMove(class Move move) {
     _board[move.getEnd().first][move.getEnd().second] =
             _board[move.getBegin().first][move.getBegin().second];
     _board[move.getBegin().first][move.getBegin().second] = nullptr;
+
+    //pawn transform
+    if (move.getFigure()->getType() == FigureType::Pawn) {
+        if ((move.getFigure()->getColor() == Color::White && move.getEnd().second == 7) ||
+            (move.getFigure()->getColor() == Color::Black && move.getEnd().second == 0)) {
+
+            pawnTransform(move.getEnd(), FigureType::Queen);
+        }
+    }
 
     if (isCheck(move.getFigure()->getColor())) {
         for (int i = 0; i < 8; ++i) {
@@ -334,7 +334,7 @@ void ChessBoard::pawnTransform(std::pair<int, int> pos, FigureType to) {
 
             throw std::invalid_argument("Wrong figure to transform");
         }
-        auto *newFig = new Figure(this->_board[pos.first][pos.second]->getColor(), to);
+        auto* newFig = new Figure(this->_board[pos.first][pos.second]->getColor(), to);
         this->_board[pos.first][pos.second] = newFig;
     }
     catch (std::exception& ex) {
