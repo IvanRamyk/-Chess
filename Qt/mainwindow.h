@@ -5,11 +5,16 @@
 #include <QPainter>
 #include <QMenuBar>
 #include <QMouseEvent>
+#include <QLabel>
+#include <QTextBrowser>
 #include <QPoint>
+#include <QCheckBox>
 #include <string>
 #include <iostream>
+#include <string>
 #include "images.h"
 #include "field.h"
+#include "../src/Stockfish/Stockfish.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -36,11 +41,43 @@ protected:
                               pictures->get("board"));
         painter.drawImage(field->getX(),this->menuBar()
                               ->geometry().height()+field->getY(), field->getImage());
+        move_color->clear();
+        move_color->setGeometry(left_board, up_board - height * 0.075, width_board, height * 0.05);
+        move_color->setStyleSheet("background-color: transparent;\n"
+                                  "font-size:18pt;\n"
+                                  "text-align: center;");
+        if (field->getColor() == Color::White)
+            move_color->setText("White move");
+        else
+            move_color->setText("Black move");
+        move_color->show();
+        notation->clear();
+        notation->setGeometry(left_board + width_board + 0.075 * height, up_board + height * 0.075, height * 0.3, height * 0.7);
+        notation->setStyleSheet("background-color: transparent;\n"
+                                  "font-size:18pt;\n"
+                                  "text-align: center;");
+        notation->setText(QString::fromUtf8(field->getNotation().c_str()));
+        notation->show();
+
+        evaluation->clear();
+        if (stockfish_evaluation->isChecked()){
+
+            evaluation->setGeometry(width*0.85, height*0.018, width*0.2, width*0.05);
+            evaluation->setStyleSheet("background-color: transparent;\n"
+                                      "font-size:18pt;\n"
+                                      "text-align: center;");
+
+            evaluation->setText(QString::fromUtf8((std::to_string(field->getEvaluation())).c_str()));
+            evaluation->show();
+        }
+
+
     }
     void mousePressEvent (QMouseEvent *event) {
         QPoint position=event->pos();
         QPoint on_field = field->getCoordinate(position.x(), position.y());
-        field->handleClick(on_field);
+        if (on_field.x() != -1)
+            field->handleClick(on_field);
         this->update();
     }
 private slots:
@@ -53,6 +90,11 @@ private:
     Field *field;
     State state;
     int height, width, left_board, up_board, height_board, width_board;
+    QTextBrowser *move_color;
+    QTextBrowser *notation;
+    QTextBrowser *evaluation;
+    QCheckBox *stockfish_evaluation;
+
 
 };
 #endif // MAINWINDOW_H

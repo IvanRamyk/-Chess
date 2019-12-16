@@ -20,10 +20,4 @@ Field::Field(Images* _images,int lft, int tp,int wdth,int hgh):
     state = State::Select;
     moveSide = Color::White;
     updateField();
-    /*field[1][1].setColor(Color::White);
-    field[1][1].setFigure(Cell::DrawFigure::King);
-    field[0][2].setColor(Color::Black);
-    field[0][2].setFigure(Cell::DrawFigure::Queen);
-    field[3][2].setColor(Color::Black);
-    field[3][2].setFigure(Cell::DrawFigure::Queen);*/
 }

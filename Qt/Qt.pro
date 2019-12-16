@@ -25,7 +25,8 @@ SOURCES += \
     ../src/Chess/ChessBoard/ChessBoard.cpp \
     ../src/Chess/Figure/Figure.cpp \
     ../src/Chess/Move/Move.cpp \
-    ../src/Chess/MoveNotation/MoveNotation.cpp
+    ../src/Chess/MoveNotation/MoveNotation.cpp \
+    ../src/Stockfish/Stockfish.cpp
 
 HEADERS += \
     cell.h \
@@ -36,7 +37,8 @@ HEADERS += \
     ../src/Chess/ChessBoard/ChessBoard.h \
     ../src/Chess/Figure/Figure.h \
     ../src/Chess/Move/Move.h \
-    ../src/Chess/MoveNotation/MoveNotaion.h
+    ../src/Chess/MoveNotation/MoveNotaion.h \
+    ../src/Stockfish/Stockfish.h
 
 FORMS += \
     mainwindow.ui

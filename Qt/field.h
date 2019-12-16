@@ -9,6 +9,7 @@
 #include <QPainter>
 #include "../src/Chess/ChessGame/ChessGame.h"
 #include "../src/Chess/ChessBoard/ChessBoard.h"
+#include "../src/Stockfish/Stockfish.h"
 
 
 class Field
@@ -151,6 +152,17 @@ public:
         }
 
         redraw();
+    }
+    Color getColor(){
+        return moveSide;
+    }
+    std::string getNotation(){
+        return game.getMoves();
+    }
+    double getEvaluation(){
+        return 0.5;
+        Stockfish stockfish(game);
+        return stockfish.getEvaluation();
     }
 
 private:
