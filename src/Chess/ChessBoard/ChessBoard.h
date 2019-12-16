@@ -16,6 +16,8 @@ public:
 
     bool makeMove(Move move);
 
+    [[nodiscard]] Figure* getFigure(std::pair<int, int> pos) const;
+
     [[nodiscard]] bool checkMove(Move move) const;
 
     [[nodiscard]] std::vector<std::string> getField() const;

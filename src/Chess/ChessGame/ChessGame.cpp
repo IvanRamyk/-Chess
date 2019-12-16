@@ -11,9 +11,6 @@
 ChessGame::ChessGame(ChessBoard board): _board(std::move(board)) {}
 
 bool ChessGame::makeMove(std::pair <int, int> from, std::pair<int, int> to) {
-    if (from.first == 6 && from.second == 1){
-
-     std::cout << 1;}
     Move move(from, to, _board.getFigure(from));
     if (move.getFigure() == nullptr) {
         return false;
@@ -33,6 +30,11 @@ bool ChessGame::makeMove(std::pair <int, int> from, std::pair<int, int> to) {
     return true;
 }
 
+
+Figure * ChessGame::getFigure(std::pair<int, int> pos) const {
+    return _board.getFigure(pos);
+}
+
 std::string ChessGame::getMoves() const {
     std::string result;
     for (int i = 0; i < _moves.size(); ++i) {
@@ -47,7 +49,7 @@ std::string ChessGame::getStockfishMoves() const {
     std::string res;
     for (auto move_notation : this->_moves)
         res += (move_notation.getMove().getStockfishMove() + " ");
-    res.erase(res.end() - 1);
+    //res.erase(res.end() - 1);
     return res;
 }
 

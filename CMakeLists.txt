@@ -6,5 +6,5 @@ add_subdirectory(lib/googletest-master)
 include_directories(lib/googletest-master/googletest/include)
 include_directories(lib/googletest-master/googlemock/include)
 
-add_executable(ch main.cpp src/Chess/ChessGame/ChessGame.cpp src/Chess/ChessGame/ChessGame.h src/Chess/ChessBoard/ChessBoard.cpp src/Chess/ChessBoard/ChessBoard.h src/Chess/Figure/Figure.cpp src/Chess/Figure/Figure.h src/Chess/Move/Move.cpp src/Chess/Move/Move.h tests/testMove.cpp src/Chess/MoveNotation/MoveNotation.cpp src/Chess/MoveNotation/MoveNotation.h tests/testMoveNotation.cpp tests/testChessGame.cpp)
+add_executable(ch main.cpp src/Chess/ChessGame/ChessGame.cpp src/Chess/ChessGame/ChessGame.h src/Chess/ChessBoard/ChessBoard.cpp src/Chess/ChessBoard/ChessBoard.h src/Chess/Figure/Figure.cpp src/Chess/Figure/Figure.h src/Chess/Move/Move.cpp src/Chess/Move/Move.h tests/testMove.cpp src/Chess/MoveNotation/MoveNotation.cpp src/Chess/MoveNotation/MoveNotation.h tests/testMoveNotation.cpp tests/testChessGame.cpp src/Stockfish/Stockfish.cpp src/Stockfish/Stockfish.h tests/testStockfish.cpp)
 target_link_libraries(ch gtest gtest_main)
