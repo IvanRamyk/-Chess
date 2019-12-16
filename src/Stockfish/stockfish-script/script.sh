@@ -1,18 +1,35 @@
-#!/bin/bash
+#!/usr/bin/expect -f
 
-command="./stockfish"
-# shellcheck disable=SC2164
-eval cd .. && cd .. && cd .. && cd lib && cd stockfish-10 && cd src
-# shellcheck disable=SC2162
-# shellcheck disable=SC2002
-com=" "
-cat ../../../src/Stockfish/stockfish-script/commands.txt | while read line
-do
-   echo "$line"
-   com+="$line"
-done
+ set timeout 100
 
-com="position startpos moves e2e4 go depth 15"
-echo "com = $com"	 
-eval "$command $com \n go depth 15" >> ../../../src/Stockfish/stockfish-script/res.txt
+ puts "ls"
+
+ spawn ./stockfish
+
+ send "uci\n"
+ expect "uciok"
+
+ send "setoption name Threads value\n"
+
+ send "ucinewgame\n"
+ send "position startpos\n"
+ send "go nodes 1000\n"
+ expect "bestmove"
+
+ send "position startpos moves e2e4 e7e6\n"
+ send "go nodes 1000\n"
+ expect "bestmove"
+
+ send "position fen 5rk1/1K4p1/8/8/3B4/8/8/8 b - - 0 1\n"
+ send "go depth 30\n"
+ expect "bestmove"
+
+ send "quit\n"
+ expect eof
+
+ # return error code of the spawned program, useful for valgrind
+ lassign [wait] pid spawnid os_error_flag value
+ exit \$value
+
+
 
