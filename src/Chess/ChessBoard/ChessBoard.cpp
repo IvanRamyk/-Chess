@@ -402,25 +402,20 @@ bool ChessBoard::isCheckmate(Color color, std::pair<int, int> kingPos) {
         return false;
     }
 
-    for (int i = 0; i < 8; ++i) {
-        for (int j = 0; j < 8; ++j) {
-            if (_board[i][j] && _board[i][j]->getColor() == color) {
-                for (int x = 0; x < 8; ++x) {
-                    for (int y = 0; y < 8; ++y) {
-                        if (!(i == x && j == y)) {
-                            if (checkMove(Move(Move({i, j}, {x, y}, _board[i][j]))) &&
-                                makeMove(Move({i, j}, {x, y}, _board[i][j]))) {
-                                makeMove(Move({x, y}, {i, j}, _board[x][y]));
-                                return false;
-                            }
-                        }
-                    }
-                }
-            }
-        }
+    return !possibleMove(color);
+}
+
+bool ChessBoard::isStalemate(enum Color color, std::pair<int, int> kingPos) {
+    if (kingPos.first == -1) {
+        kingPos = findKing(color);
     }
 
-    return true;
+    if (isCheck(color, kingPos)) {
+        return false;
+    }
+
+    return !possibleMove(color);
+
 }
 
 bool ChessBoard::isCapture(Move move) const {
@@ -466,4 +461,26 @@ std::pair<int, int> ChessBoard::findKing(Color color) const {
     }
 
     return {-1 ,-1};
+}
+
+bool ChessBoard::possibleMove(Color color) {
+    for (int i = 0; i < 8; ++i) {
+        for (int j = 0; j < 8; ++j) {
+            if (_board[i][j] && _board[i][j]->getColor() == color) {
+                for (int x = 0; x < 8; ++x) {
+                    for (int y = 0; y < 8; ++y) {
+                        if (!(i == x && j == y)) {
+                            if (checkMove(Move(Move({i, j}, {x, y}, _board[i][j]))) &&
+                                makeMove(Move({i, j}, {x, y}, _board[i][j]))) {
+                                makeMove(Move({x, y}, {i, j}, _board[x][y]));
+                                return true;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    return false;
 }

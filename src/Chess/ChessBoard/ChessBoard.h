@@ -28,6 +28,8 @@ public:
 
     [[nodiscard]] bool isCheckmate(Color color, std::pair<int, int> kingPos = {-1, -1});
 
+    [[nodiscard]] bool isStalemate(Color color, std::pair<int, int> kingPos = {-1, -1});
+
     [[nodiscard]] bool isCapture(Move move) const;
 
     //0-0 == 1
@@ -50,6 +52,8 @@ private:
     static std::string figureToString(std::pair<int, int> pos, Figure* fig);
 
     [[nodiscard]] std::pair<int, int> findKing(Color color) const;
+
+    [[nodiscard]] bool possibleMove(Color color);
 
     //TODO
     FigureType getTypeToTransform() const;
