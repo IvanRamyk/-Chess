@@ -61,3 +61,7 @@ std::vector<std::string> ChessGame::getField() const {
 bool ChessGame::isCheckmate(Color color) {
     return _board.isCheckmate(color);
 }
+
+bool ChessGame::isStalemate(Color color) {
+    return _board.isStalemate(color);
+}

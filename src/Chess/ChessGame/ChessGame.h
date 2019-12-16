@@ -29,6 +29,8 @@ public:
 
     [[nodiscard]] bool isCheckmate(Color color);
 
+    [[nodiscard]] bool isStalemate(Color color);
+
 private:
     ChessBoard _board;
     std::vector<MoveNotation> _moves;

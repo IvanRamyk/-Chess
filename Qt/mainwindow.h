@@ -44,13 +44,16 @@ protected:
                                   "text-align: center;");
         QString text = "";
         if (field->getColor() == Color::White)
-            text = "White ";
-        else
             text = "Black ";
+        else
+            text = "White ";
         if (field->getState() == State::Checkmate)
             text += "win";
         else
             text += "move";
+        if (field->getState() == State::Stalemate) {
+            text = "Stalemate";
+        }
         move_color->setText(text);
         move_color->show();
         notation->clear();
